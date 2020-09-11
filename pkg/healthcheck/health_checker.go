@@ -21,6 +21,7 @@ func HealthCheckerSimple() ApplicationHealthSimple {
 
 // HealthCheckerDetailed perform a check for every integration informed
 func HealthCheckerDetailed(config ApplicationConfig) ApplicationHealthDetailed {
+	mainStatus = true // for every call reset internal pointer to true
 	var integrations []Integration
 	start := time.Now()
 	for _, v := range config.Integrations {
@@ -87,14 +88,16 @@ func checkMemcachedClient(config IntegrationConfig) Integration {
 	start := time.Now()
 	err := mcClient.Ping()
 	elapsed := time.Now().Sub(start)
+	localStatus := true
 	if err != nil {
+		localStatus = false
 		mainStatus = false
 		fmt.Println(err)
 	}
 	return Integration{
 		Name:         config.Name,
 		Kind:         MemcachedIntegration,
-		Status:       err == nil,
+		Status:       localStatus,
 		ResponseTime: elapsed.Seconds(),
 		URL:          host,
 		Error:        err,
