@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  test:
+    container_name: golang_app
+    build:
+      context: .
+    command: go test ./...
+    volumes:
+      - .:/go/src/app
+    ports:
+      - 8888:8888
+    depends_on:
+      - redis
+      - memcache
+
+  app:
+    container_name: golang_app
+    build:
+      context: .
+    command: go run main.go
+    volumes:
+      - .:/go/src/app
+    ports:
+      - 8888:8888
+    depends_on:
+      - redis
+      - memcache
+
+  redis:
+    image: redis
+
+  memcache:
+    image: memcached:1.4.21
+    ports:
+      - 11211:11211
+
+networks:
+  default:
+    external:
+      name: gritzkoo-golang-health-checker
