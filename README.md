@@ -129,12 +129,13 @@ And detailed call will return a JSON as below
 You can *__git clone__* this repo and try
 
 ```sh
+docker-compose build
 docker-compose up app
 ```
 
 And using you browser you can call:
 * [Simple Call](http://localhost:8888/health-check/simple)
-* [Detailed Call](http://localhost:8888/health-check/simple)
+* [Detailed Call](http://localhost:8888/health-check/detailed)
 
 And to run tests
 

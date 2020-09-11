@@ -68,6 +68,6 @@ func TestDetailedChecker(t *testing.T) {
 
 		result := HealthCheckerDetailed(config)
 
-		assert.IsEqual(result.Status, v)
+		assert.IsEqual(result.Status, v.Expected)
 	}
 }
