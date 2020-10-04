@@ -37,5 +37,4 @@ services:
 
 networks:
   default:
-    external:
-      name: gritzkoo-golang-health-checker
+    name: gritzkoo-golang-health-checker

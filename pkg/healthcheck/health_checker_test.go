@@ -70,7 +70,7 @@ var detailedDataProvider = []detailedListProvider{
 		Config: IntegrationConfig{
 			Type: Web,
 			Name: "go-test-web",
-			Host: "#@$*&",
+			Host: "https://google.com/status",
 			Headers: []HTTPHeader{
 				{
 					Key:   "Accept",
@@ -78,6 +78,12 @@ var detailedDataProvider = []detailedListProvider{
 				},
 			},
 			TimeOut: 1000,
+		},
+	}, {
+		Expected: false,
+		Config: IntegrationConfig{
+			Type: "unknow",
+			Name: "go-test-unknow",
 		},
 	},
 }

@@ -115,23 +115,18 @@ func checkWebServiceClient(config IntegrationConfig) Integration {
 		Timeout: time.Second * time.Duration(timeout),
 	}
 	start := time.Now()
-	request, err := http.NewRequest("GET", host, nil)
-	if err != nil {
-		mainStatus = false
+	request, _ := http.NewRequest("GET", host, nil)
+
+	if len(config.Headers) > 0 {
+		for _, v := range config.Headers {
+			request.Header.Add(v.Key, v.Value)
+		}
+	}
+	response, err := client.Do(request)
+	if err != nil || response.StatusCode != 200 {
 		myStatus = false
+		mainStatus = false
 		fmt.Println(err)
-	} else {
-		if len(config.Headers) > 0 {
-			for _, v := range config.Headers {
-				request.Header.Add(v.Key, v.Value)
-			}
-		}
-		response, err := client.Do(request)
-		if err != nil || response.StatusCode != 200 {
-			myStatus = false
-			mainStatus = false
-			fmt.Println(err)
-		}
 	}
 	elapsed := time.Now().Sub(start)
 	return Integration{
