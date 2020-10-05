@@ -27,4 +27,4 @@ docker-compose run test
 * [ ] Postgres
 * [ ] RabbitMQ
 
- And any other that in this very moment we just don't known
+ There are no plans to add more integrations for now, but if you want to colaborate, open a PR or a issue
