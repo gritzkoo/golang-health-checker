@@ -1,19 +1,47 @@
-# Golang Health Checker
+# golang-health-checker
 
+<div align="center">
+
+![test](https://github.com/gritzkoo/golang-health-checker/workflows/test/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/gritzkoo/golang-health-checker.svg?branch=master)](https://travis-ci.org/gritzkoo/golang-health-checker)
+[![Coverage Status](https://coveralls.io/repos/github/gritzkoo/golang-health-checker/badge.svg?branch=master)](https://coveralls.io/github/gritzkoo/golang-health-checker?branch=master)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/gritzkoo/golang-health-checker)
+![GitHub repo size](https://img.shields.io/github/repo-size/gritzkoo/golang-health-checker)
+![GitHub](https://img.shields.io/github/license/gritzkoo/golang-health-checker)
+![GitHub issues](https://img.shields.io/github/issues/gritzkoo/golang-health-checker)
+</div>
 
-Simple Golang package to simplify applications based in Go, to trace the healthy of the pods
+A simple package to allow you to track your application healthy providing two ways of checking:
+
+*__Simple__*: will return a "fully functional" string and with this, you can check if your application is online and responding without any integration check
+
+*__Detailed__*: will return a detailed status for any integration configuration informed on the integrations just like in the examples below
 
 ## How to install
 
+If you are just starting a Go projetct you must start a go.mod file like below
+
 ```sh
 go mod init github.com/my/repo
+```
+
+Or else, you already has a started project, just run the command below
+
+```sh
 go get github.com/gritzkoo/golang-health-checker
 ```
 
 ## How to use
 
-There are 2 ways of call this package, __*simple*__ and __*detailed*__ as the example below
+In this example, we will use the Echo web server to show how to import and use *Simple* and *Detailed* calls.
+
+If you want check the full options in configurations, look this [IntegrationConfig struct](https://github.com/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go#L45-L54)
+
+### Available integrations
+
+- [x] Redis
+- [x] Memcached
+- [x] Web integration (https)
 
 ```go
 package main
@@ -30,17 +58,15 @@ func main() {
   // all the content below is just an example
   // Echo instance
   e := echo.New()
-
   // Middleware
   e.Use(middleware.Logger())
   e.Use(middleware.Recover())
-
   // example of simple call
-  e.GET("/health-check/simple", func(c echo.Context) error {
+  e.GET("/health-check/liveness", func(c echo.Context) error {
     return c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
   })
   // example of detailed call
-  e.GET("/health-check/detailed", func(c echo.Context) error {
+  e.GET("/health-check/readiness", func(c echo.Context) error {
     // define all integrations of your application with type healthcheck.ApplicationConfig
     myApplicationConfig := healthcheck.ApplicationConfig{ // check the full list of available props in structs.go
       Name:    "You APP Name", // optional prop
@@ -49,14 +75,14 @@ func main() {
         {
           Type: healthcheck.Redis, // this prop will determine the kind of check, the list of types available in structs.go
           Name: "redis-user-db",   // the name of you integration to display in response
-          Host: "localhost",       // you can pass host:port and omit Port attribute
+          Host: "redis",           // you can pass host:port and omit Port attribute
           Port: "6379",
           DB:   0, // default value is 0
         }, {
           Type: healthcheck.Memcached, // this prop will determine the kind of check, the list of types available in structs.go
           Name: "Memcached server",    // the name of you integration to display in response
-          Host: "localhost",           // you can pass host:port and omit Port attribute
-          Port: "11213",
+          Host: "memcache",            // you can pass host:port and omit Port attribute
+          Port: "11211",
         }, {
           Type:    healthcheck.Web,             // this prop will determine the kind of check, the list of types available in structs.go
           Name:    "Github Integration",        // the name of you integration to display in response
@@ -71,10 +97,8 @@ func main() {
         },
       },
     }
-
     return c.JSON(http.StatusOK, healthcheck.HealthCheckerDetailed(myApplicationConfig))
   })
-
   // Start server
   e.Logger.Fatal(e.Start(":8888"))
 }
@@ -123,22 +147,44 @@ And detailed call will return a JSON as below
   ]
 }
 ```
+## How to contribute
+## Kubernetes liveness and readiness probing
 
-## How it works
+And then, you could call this endpoints manually to see your application health, but, if you are using modern kubernetes deployment, you can config your chart to check your application with the setup below:
 
-You can *__git clone__* this repo and try
-
-```sh
-docker-compose build
-docker-compose up app
-```
-
-And using you browser you can call:
-* [Simple Call](http://localhost:8888/health-check/simple)
-* [Detailed Call](http://localhost:8888/health-check/detailed)
-
-And to run tests
-
-```sh
-docker-compose run test
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-http
+spec:
+  containers:
+  - name: liveness
+    image: 'go' #your application image
+    args:
+    - /server
+    livenessProbe:
+      httpGet:
+        path: /health-check/liveness
+        port: 80
+        httpHeaders:
+        - name: Custom-Header
+          value: Awesome
+      initialDelaySeconds: 3
+      periodSeconds: 3
+  - name: readiness
+    image: 'go' #your application image
+    args:
+    - /server
+    readinessProbe:
+      httpGet:
+        path: /health-check/readiness
+        port: 80
+        httpHeaders:
+        - name: Custom-Header
+          value: Awesome
+      initialDelaySeconds: 3
+      periodSeconds: 3
 ```

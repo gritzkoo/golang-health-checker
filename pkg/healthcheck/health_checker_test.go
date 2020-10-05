@@ -13,41 +13,78 @@ func TestSimpleChecker(t *testing.T) {
 }
 
 type detailedListProvider struct {
-	Type     string
-	Host     string
-	Port     string
 	Expected bool
+	Config   IntegrationConfig
 }
 
 var detailedDataProvider = []detailedListProvider{
 	{
-		Type:     Redis,
-		Host:     "redis",
-		Port:     "6379",
 		Expected: true,
+		Config: IntegrationConfig{
+			Type: Redis,
+			Name: "go-test-redis",
+			DB:   1,
+			Host: "localhost",
+			Port: "6379",
+		},
 	}, {
-		Type:     Redis,
-		Host:     "redis",
-		Port:     "63",
 		Expected: false,
+		Config: IntegrationConfig{
+			Type: Redis,
+			Name: "go-test-redis",
+			DB:   1,
+			Host: "localhost",
+			Port: "63",
+		},
 	}, {
-		Type:     Memcached,
-		Host:     "memcache",
-		Port:     "11211",
 		Expected: true,
+		Config: IntegrationConfig{
+			Type: Memcached,
+			Name: "go-test-memcached",
+			Host: "localhost",
+			Port: "11211",
+		},
 	}, {
-		Type:     Memcached,
-		Host:     "memcache",
-		Port:     "11",
 		Expected: false,
+		Config: IntegrationConfig{
+			Type: Memcached,
+			Name: "go-test-memcached",
+			Host: "localhost",
+			Port: "11",
+		},
 	}, {
-		Type:     Web,
-		Host:     "https://github.com/status",
 		Expected: true,
+		Config: IntegrationConfig{
+			Type: Web,
+			Name: "go-test-web",
+			Host: "https://github.com/status",
+			Headers: []HTTPHeader{
+				{
+					Key:   "Accept",
+					Value: "application/json",
+				},
+			},
+		},
 	}, {
-		Type:     Web,
-		Host:     "https://google.com/status",
 		Expected: false,
+		Config: IntegrationConfig{
+			Type: Web,
+			Name: "go-test-web",
+			Host: "https://google.com/status",
+			Headers: []HTTPHeader{
+				{
+					Key:   "Accept",
+					Value: "application/json",
+				},
+			},
+			TimeOut: 1000,
+		},
+	}, {
+		Expected: false,
+		Config: IntegrationConfig{
+			Type: "unknow",
+			Name: "go-test-unknow",
+		},
 	},
 }
 
@@ -58,11 +95,7 @@ func TestDetailedChecker(t *testing.T) {
 			Name:    "test",
 			Version: "test",
 			Integrations: []IntegrationConfig{
-				{
-					Type: v.Type,
-					Host: v.Host,
-					Port: v.Port,
-				},
+				v.Config,
 			},
 		}
 

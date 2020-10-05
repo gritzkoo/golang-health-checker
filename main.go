@@ -12,17 +12,15 @@ func main() {
 	// all the content below is just an example
 	// Echo instance
 	e := echo.New()
-
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
-
 	// example of simple call
-	e.GET("/health-check/simple", func(c echo.Context) error {
+	e.GET("/health-check/liveness", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
 	})
 	// example of detailed call
-	e.GET("/health-check/detailed", func(c echo.Context) error {
+	e.GET("/health-check/readiness", func(c echo.Context) error {
 		// define all integrations of your application with type healthcheck.ApplicationConfig
 		myApplicationConfig := healthcheck.ApplicationConfig{ // check the full list of available props in structs.go
 			Name:    "You APP Name", // optional prop
@@ -53,10 +51,8 @@ func main() {
 				},
 			},
 		}
-
 		return c.JSON(http.StatusOK, healthcheck.HealthCheckerDetailed(myApplicationConfig))
 	})
-
 	// Start server
 	e.Logger.Fatal(e.Start(":8888"))
 }
