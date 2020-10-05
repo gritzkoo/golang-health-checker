@@ -58,10 +58,10 @@ func main() {
   e := echo.New()
   e.Use(middleware.Logger())
   e.Use(middleware.Recover())
-  e.GET("/health-check/simple", func(c echo.Context) error {
+  e.GET("/health-check/liveness", func(c echo.Context) error {
     return c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
   })
-  e.GET("/health-check/detailed", func(c echo.Context) error {
+  e.GET("/health-check/readiness", func(c echo.Context) error {
     myApplicationConfig := healthcheck.ApplicationConfig{ 
       Name:    "You APP Name",
       Version: "V1.0.0",
