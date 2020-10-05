@@ -147,7 +147,7 @@ And detailed call will return a JSON as below
   ]
 }
 ```
-
+## How to contribute
 ## Kubernetes liveness and readiness probing
 
 And then, you could call this endpoints manually to see your application health, but, if you are using modern kubernetes deployment, you can config your chart to check your application with the setup below:
