@@ -20,7 +20,7 @@ jobs:
           go-version: ${{ matrix.go }}
       - run: go test -v -coverprofile=profile.cov ./...
 
-      - name: Send coverage
+      - name: Send coverage to coverall.io
         uses: shogo82148/actions-goveralls@v1
         with:
           path-to-profile: profile.cov
