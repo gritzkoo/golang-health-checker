@@ -9,7 +9,7 @@ jobs:
         go: ["1.11", "1.12", "1.13", "1.14", "1.15"]
     steps:
       - uses: actions/checkout@v2
-      - name: Memcached Service
+      - name: Sets up a Memcached server
         uses: niden/actions-memcached@v7
       - name: Start Redis
         uses: supercharge/redis-github-action@1.1.0
