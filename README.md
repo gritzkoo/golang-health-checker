@@ -1,7 +1,5 @@
 # golang-health-checker
 
-<div align="center">
-
 ![test](https://github.com/gritzkoo/golang-health-checker/workflows/test/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/gritzkoo/golang-health-checker.svg?branch=master)](https://travis-ci.org/gritzkoo/golang-health-checker)
 [![Coverage Status](https://coveralls.io/repos/github/gritzkoo/golang-health-checker/badge.svg?branch=master)](https://coveralls.io/github/gritzkoo/golang-health-checker?branch=master)
@@ -9,7 +7,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/gritzkoo/golang-health-checker)
 ![GitHub](https://img.shields.io/github/license/gritzkoo/golang-health-checker)
 ![GitHub issues](https://img.shields.io/github/issues/gritzkoo/golang-health-checker)
-</div>
 
 A simple package to allow you to track your application healthy providing two ways of checking:
 
@@ -147,7 +144,7 @@ And detailed call will return a JSON as below
   ]
 }
 ```
-## How to contribute
+
 ## Kubernetes liveness and readiness probing
 
 And then, you could call this endpoints manually to see your application health, but, if you are using modern kubernetes deployment, you can config your chart to check your application with the setup below:

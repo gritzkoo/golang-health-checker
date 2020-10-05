@@ -1,6 +1,7 @@
 name: test
 on: [push, pull_request]
 jobs:
+
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -27,6 +28,7 @@ jobs:
           flag-name: Go-${{ matrix.go }}
           parallel: true
           # notifies that all test jobs are finished.
+
   finish:
     needs: test
     runs-on: ubuntu-latest
