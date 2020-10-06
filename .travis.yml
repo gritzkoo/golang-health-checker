@@ -1,8 +1,9 @@
 dist: xenial
 language: go
 
-services:
+before_script:
   - redis-server
+  - memcached
 
 go:
   - 1.14.x
