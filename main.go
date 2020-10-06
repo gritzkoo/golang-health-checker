@@ -29,16 +29,27 @@ func main() {
 				{
 					Type: healthcheck.Redis, // this prop will determine the kind of check, the list of types available in structs.go
 					Name: "redis-user-db",   // the name of you integration to display in response
-					Host: "redis",           // you can pass host:port and omit Port attribute
+					Host: "localhost",       // you can pass host:port and omit Port attribute
 					Port: "6379",
 					DB:   0, // default value is 0
 				}, {
 					Type: healthcheck.Memcached, // this prop will determine the kind of check, the list of types available in structs.go
 					Name: "Memcached server",    // the name of you integration to display in response
-					Host: "memcache",            // you can pass host:port and omit Port attribute
+					Host: "localhost",           // you can pass host:port and omit Port attribute
 					Port: "11211",
 				}, {
 					Type:    healthcheck.Web,             // this prop will determine the kind of check, the list of types available in structs.go
+					Name:    "Github Integration",        // the name of you integration to display in response
+					Host:    "https://github.com/status", // you can pass host:port and omit Port attribute
+					TimeOut: 5,                           // default value to web call is 10s
+					Headers: []healthcheck.HTTPHeader{ // to customize headers to perform a GET request
+						{
+							Key:   "Accept",
+							Value: "application/json",
+						},
+					},
+				}, {
+					Type:    "unknown",                   // this prop will determine the kind of check, the list of types available in structs.go
 					Name:    "Github Integration",        // the name of you integration to display in response
 					Host:    "https://github.com/status", // you can pass host:port and omit Port attribute
 					TimeOut: 5,                           // default value to web call is 10s
