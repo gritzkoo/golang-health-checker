@@ -1,6 +1,7 @@
 package healthcheck
 
 import (
+	"fmt"
 	"testing"
 
 	"gopkg.in/go-playground/assert.v1"
@@ -100,7 +101,14 @@ func TestDetailedChecker(t *testing.T) {
 		}
 
 		result := HealthCheckerDetailed(config)
-
-		assert.IsEqual(result.Status, v.Expected)
+		condition := v.Expected == result.Status
+		printstring := ""
+		if condition {
+			printstring = "ok"
+		} else {
+			printstring = "nok"
+		}
+		fmt.Println("Running config:", v.Config, " and result: ", printstring)
+		assert.Equal(t, result.Status, v.Expected)
 	}
 }

@@ -3,6 +3,7 @@ language: go
 
 services:
   - redis-server
+  - memcached
 
 go:
   - 1.14.x

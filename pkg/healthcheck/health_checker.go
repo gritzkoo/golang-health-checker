@@ -7,6 +7,7 @@ import (
 
 	"github.com/bradfitz/gomemcache/memcache"
 	"github.com/go-redis/redis"
+	"golang.org/x/crypto/openpgp/errors"
 )
 
 // used to track internally if one of the integrated services fails
@@ -39,7 +40,17 @@ func HealthCheckerDetailed(config ApplicationConfig) ApplicationHealthDetailed {
 			integrations = append(integrations, temp)
 			break
 		default:
-			fmt.Println("Configuration error, type unsuported:", v)
+			fmt.Println("Configuration error, type unsuported:", v.Type)
+			temp := Integration{
+				Name:         v.Name,
+				Kind:         v.Type,
+				Status:       false,
+				ResponseTime: 0,
+				URL:          v.Host,
+				Error:        errors.UnsupportedError("unsuported type of:" + v.Type),
+			}
+			mainStatus = false
+			integrations = append(integrations, temp)
 			break
 		}
 	}
