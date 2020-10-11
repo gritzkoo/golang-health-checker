@@ -7,6 +7,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/gritzkoo/golang-health-checker)
 ![GitHub](https://img.shields.io/github/license/gritzkoo/golang-health-checker)
 ![GitHub issues](https://img.shields.io/github/issues/gritzkoo/golang-health-checker)
+[![Go Report Card](https://goreportcard.com/badge/github.com/gritzkoo/golang-health-checker)](https://goreportcard.com/report/github.com/gritzkoo/golang-health-checker)
 
 A simple package to allow you to track your application healthy providing two ways of checking:
 

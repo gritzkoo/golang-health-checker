@@ -1,15 +1,12 @@
 package healthcheck
 
-/*
-	ApplicationHealth used to check all application integrations
-	and return status of each of then
-*/
+// ApplicationHealthDetailed used to check all application integrations and return status of each of then
 type ApplicationHealthDetailed struct {
 	Name         string        `json:"name,omitempty"`
 	Status       bool          `json:"status"`
 	Version      string        `json:"version,omitempty"`
 	Date         string        `json:"date"`
-	Duration     float64       `json:duration"`
+	Duration     float64       `json:"duration"`
 	Integrations []Integration `json:"integrations"`
 }
 
