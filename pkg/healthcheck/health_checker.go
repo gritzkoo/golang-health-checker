@@ -1,17 +1,14 @@
 package healthcheck
 
 import (
-	"fmt"
 	"net/http"
+	"sync"
 	"time"
 
 	"github.com/bradfitz/gomemcache/memcache"
 	"github.com/go-redis/redis"
 	"golang.org/x/crypto/openpgp/errors"
 )
-
-// used to track internally if one of the integrated services fails
-var mainStatus = true
 
 // HealthCheckerSimple performs a simple check of the application
 func HealthCheckerSimple() ApplicationHealthSimple {
@@ -22,51 +19,52 @@ func HealthCheckerSimple() ApplicationHealthSimple {
 
 // HealthCheckerDetailed perform a check for every integration informed
 func HealthCheckerDetailed(config ApplicationConfig) ApplicationHealthDetailed {
-	mainStatus = true // for every call reset internal pointer to true
-	var integrations []Integration
-	start := time.Now()
+	var (
+		start     = time.Now()
+		wg        sync.WaitGroup
+		checklist = make(chan Integration, len(config.Integrations))
+		rt        = ApplicationHealthDetailed{
+			Name:         config.Name,
+			Version:      config.Version,
+			Status:       true,
+			Date:         time.Now().String(),
+			Duration:     0,
+			Integrations: []Integration{},
+		}
+	)
 	for _, v := range config.Integrations {
 		switch v.Type {
 		case Redis:
-			temp := checkRedisClient(v)
-			integrations = append(integrations, temp)
-			break
+			wg.Add(1)
+			go checkRedisClient(v, &rt, &wg, checklist)
 		case Memcached:
-			temp := checkMemcachedClient(v)
-			integrations = append(integrations, temp)
-			break
+			wg.Add(1)
+			go checkMemcachedClient(v, &rt, &wg, checklist)
 		case Web:
-			temp := checkWebServiceClient(v)
-			integrations = append(integrations, temp)
-			break
+			wg.Add(1)
+			go checkWebServiceClient(v, &rt, &wg, checklist)
 		default:
-			fmt.Println("Configuration error, type unsuported:", v.Type)
-			temp := Integration{
-				Name:         v.Name,
-				Kind:         v.Type,
-				Status:       false,
-				ResponseTime: 0,
-				URL:          v.Host,
-				Error:        errors.UnsupportedError("unsuported type of:" + v.Type),
-			}
-			mainStatus = false
-			integrations = append(integrations, temp)
-			break
+			wg.Add(1)
+			go defaultAction(v, &rt, &wg, checklist)
 		}
 	}
-	return ApplicationHealthDetailed{
-		Status:       mainStatus,
-		Name:         config.Name,
-		Version:      config.Version,
-		Date:         time.Now().String(),
-		Duration:     time.Now().Sub(start).Seconds(),
-		Integrations: integrations,
+	go func() {
+		wg.Wait()
+		close(checklist)
+		rt.Duration = time.Now().Sub(start).Seconds()
+	}()
+	for chk := range checklist {
+		rt.Integrations = append(rt.Integrations, chk)
 	}
+	return rt
 }
 
-func checkRedisClient(config IntegrationConfig) Integration {
-	var host = validateHost(config)
-	var DB = 0
+func checkRedisClient(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+	defer (*wg).Done()
+	var (
+		host = validateHost(config)
+		DB   = 0
+	)
 	if config.DB > 0 {
 		DB = config.DB
 	}
@@ -79,11 +77,10 @@ func checkRedisClient(config IntegrationConfig) Integration {
 	response, err := rdb.Ping().Result()
 	elapsed := time.Now().Sub(start)
 	rdb.Close()
-	if err != nil {
-		mainStatus = false
-		fmt.Println(err)
+	if err != nil || response != "PONG" {
+		rt.Status = false
 	}
-	return Integration{
+	checklist <- Integration{
 		Name:         config.Name,
 		Kind:         RedisIntegration,
 		Status:       response == "PONG",
@@ -93,7 +90,8 @@ func checkRedisClient(config IntegrationConfig) Integration {
 	}
 }
 
-func checkMemcachedClient(config IntegrationConfig) Integration {
+func checkMemcachedClient(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+	defer (*wg).Done()
 	var host = validateHost(config)
 	mcClient := memcache.New(host)
 	start := time.Now()
@@ -102,10 +100,9 @@ func checkMemcachedClient(config IntegrationConfig) Integration {
 	localStatus := true
 	if err != nil {
 		localStatus = false
-		mainStatus = false
-		fmt.Println(err)
+		rt.Status = false
 	}
-	return Integration{
+	checklist <- Integration{
 		Name:         config.Name,
 		Kind:         MemcachedIntegration,
 		Status:       localStatus,
@@ -115,17 +112,20 @@ func checkMemcachedClient(config IntegrationConfig) Integration {
 	}
 }
 
-func checkWebServiceClient(config IntegrationConfig) Integration {
-	var host = validateHost(config)
-	var timeout = 10
-	var myStatus = true
+func checkWebServiceClient(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+	defer (*wg).Done()
+	var (
+		host     = validateHost(config)
+		timeout  = 10
+		myStatus = true
+		start    = time.Now()
+	)
 	if config.TimeOut > 0 {
 		timeout = config.TimeOut
 	}
 	client := http.Client{
 		Timeout: time.Second * time.Duration(timeout),
 	}
-	start := time.Now()
 	request, _ := http.NewRequest("GET", host, nil)
 
 	if len(config.Headers) > 0 {
@@ -136,17 +136,28 @@ func checkWebServiceClient(config IntegrationConfig) Integration {
 	response, err := client.Do(request)
 	if err != nil || response.StatusCode != 200 {
 		myStatus = false
-		mainStatus = false
-		fmt.Println(err)
+		rt.Status = false
 	}
-	elapsed := time.Now().Sub(start)
-	return Integration{
+	checklist <- Integration{
 		Name:         config.Name,
 		Kind:         WebServiceIntegration,
 		Status:       myStatus,
-		ResponseTime: elapsed.Seconds(),
+		ResponseTime: time.Now().Sub(start).Seconds(),
 		URL:          host,
 		Error:        err,
+	}
+}
+
+func defaultAction(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+	defer (*wg).Done()
+	rt.Status = false
+	checklist <- Integration{
+		Name:         config.Name,
+		Kind:         config.Type,
+		Status:       false,
+		ResponseTime: 0,
+		URL:          config.Host,
+		Error:        errors.UnsupportedError("unsuported type of:" + config.Type),
 	}
 }
 
