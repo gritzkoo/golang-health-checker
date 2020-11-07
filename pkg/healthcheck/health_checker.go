@@ -27,7 +27,7 @@ func HealthCheckerDetailed(config ApplicationConfig) ApplicationHealthDetailed {
 			Name:         config.Name,
 			Version:      config.Version,
 			Status:       true,
-			Date:         time.Now().String(),
+			Date:         start.String(),
 			Duration:     0,
 			Integrations: []Integration{},
 		}
