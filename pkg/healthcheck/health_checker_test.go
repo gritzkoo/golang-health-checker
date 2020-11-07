@@ -102,10 +102,8 @@ func TestDetailedChecker(t *testing.T) {
 
 		result := HealthCheckerDetailed(config)
 		condition := v.Expected == result.Status
-		printstring := ""
-		if condition {
-			printstring = "ok"
-		} else {
+		printstring := "ok"
+		if !condition {
 			printstring = "nok"
 		}
 		fmt.Println("Running config:", v.Config, " and result: ", printstring)
