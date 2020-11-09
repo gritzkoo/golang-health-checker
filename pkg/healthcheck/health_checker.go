@@ -23,7 +23,7 @@ func HealthCheckerDetailed(config ApplicationConfig) ApplicationHealthDetailed {
 		start     = time.Now()
 		wg        sync.WaitGroup
 		checklist = make(chan Integration, len(config.Integrations))
-		rt        = ApplicationHealthDetailed{
+		result    = ApplicationHealthDetailed{
 			Name:         config.Name,
 			Version:      config.Version,
 			Status:       true,
@@ -32,34 +32,31 @@ func HealthCheckerDetailed(config ApplicationConfig) ApplicationHealthDetailed {
 			Integrations: []Integration{},
 		}
 	)
+	wg.Add(len(config.Integrations))
 	for _, v := range config.Integrations {
 		switch v.Type {
 		case Redis:
-			wg.Add(1)
-			go checkRedisClient(v, &rt, &wg, checklist)
+			go checkRedisClient(v, &result, &wg, checklist)
 		case Memcached:
-			wg.Add(1)
-			go checkMemcachedClient(v, &rt, &wg, checklist)
+			go checkMemcachedClient(v, &result, &wg, checklist)
 		case Web:
-			wg.Add(1)
-			go checkWebServiceClient(v, &rt, &wg, checklist)
+			go checkWebServiceClient(v, &result, &wg, checklist)
 		default:
-			wg.Add(1)
-			go defaultAction(v, &rt, &wg, checklist)
+			go defaultAction(v, &result, &wg, checklist)
 		}
 	}
 	go func() {
 		wg.Wait()
 		close(checklist)
-		rt.Duration = time.Now().Sub(start).Seconds()
+		result.Duration = time.Now().Sub(start).Seconds()
 	}()
 	for chk := range checklist {
-		rt.Integrations = append(rt.Integrations, chk)
+		result.Integrations = append(result.Integrations, chk)
 	}
-	return rt
+	return result
 }
 
-func checkRedisClient(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+func checkRedisClient(config IntegrationConfig, result *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
 	defer (*wg).Done()
 	var (
 		host = validateHost(config)
@@ -78,7 +75,7 @@ func checkRedisClient(config IntegrationConfig, rt *ApplicationHealthDetailed, w
 	elapsed := time.Now().Sub(start)
 	rdb.Close()
 	if err != nil || response != "PONG" {
-		rt.Status = false
+		result.Status = false
 	}
 	checklist <- Integration{
 		Name:         config.Name,
@@ -90,7 +87,7 @@ func checkRedisClient(config IntegrationConfig, rt *ApplicationHealthDetailed, w
 	}
 }
 
-func checkMemcachedClient(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+func checkMemcachedClient(config IntegrationConfig, result *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
 	defer (*wg).Done()
 	var host = validateHost(config)
 	mcClient := memcache.New(host)
@@ -100,7 +97,7 @@ func checkMemcachedClient(config IntegrationConfig, rt *ApplicationHealthDetaile
 	localStatus := true
 	if err != nil {
 		localStatus = false
-		rt.Status = false
+		result.Status = false
 	}
 	checklist <- Integration{
 		Name:         config.Name,
@@ -112,7 +109,7 @@ func checkMemcachedClient(config IntegrationConfig, rt *ApplicationHealthDetaile
 	}
 }
 
-func checkWebServiceClient(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+func checkWebServiceClient(config IntegrationConfig, result *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
 	defer (*wg).Done()
 	var (
 		host     = validateHost(config)
@@ -136,7 +133,7 @@ func checkWebServiceClient(config IntegrationConfig, rt *ApplicationHealthDetail
 	response, err := client.Do(request)
 	if err != nil || response.StatusCode != 200 {
 		myStatus = false
-		rt.Status = false
+		result.Status = false
 	}
 	checklist <- Integration{
 		Name:         config.Name,
@@ -148,9 +145,9 @@ func checkWebServiceClient(config IntegrationConfig, rt *ApplicationHealthDetail
 	}
 }
 
-func defaultAction(config IntegrationConfig, rt *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
+func defaultAction(config IntegrationConfig, result *ApplicationHealthDetailed, wg *sync.WaitGroup, checklist chan Integration) {
 	defer (*wg).Done()
-	rt.Status = false
+	result.Status = false
 	checklist <- Integration{
 		Name:         config.Name,
 		Kind:         config.Type,
