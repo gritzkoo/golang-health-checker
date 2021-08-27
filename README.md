@@ -1,5 +1,6 @@
 # golang-health-checker
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/gritzkoo/golang-health-checker/pkg/healthcheck.svg)](https://pkg.go.dev/github.com/gritzkoo/golang-health-checker/pkg/healthcheck)
 ![test](https://github.com/gritzkoo/golang-health-checker/workflows/test/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/gritzkoo/golang-health-checker.svg?branch=master)](https://travis-ci.org/gritzkoo/golang-health-checker)
 [![Coverage Status](https://coveralls.io/repos/github/gritzkoo/golang-health-checker/badge.svg?branch=master)](https://coveralls.io/github/gritzkoo/golang-health-checker?branch=master)
