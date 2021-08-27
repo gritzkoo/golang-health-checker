@@ -3,24 +3,21 @@ package main
 import (
 	"net/http"
 
+	"github.com/gin-gonic/gin"
 	"github.com/gritzkoo/golang-health-checker/pkg/healthcheck"
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
 )
 
 func main() {
 	// all the content below is just an example
-	// Echo instance
-	e := echo.New()
-	// Middleware
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
+	// Gin instance
+	e := gin.Default()
+
 	// example of simple call
-	e.GET("/health-check/liveness", func(c echo.Context) error {
-		return c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
+	e.GET("/health-check/liveness", func(c *gin.Context) {
+		c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
 	})
 	// example of detailed call
-	e.GET("/health-check/readiness", func(c echo.Context) error {
+	e.GET("/health-check/readiness", func(c *gin.Context) {
 		// define all integrations of your application with type healthcheck.ApplicationConfig
 		myApplicationConfig := healthcheck.ApplicationConfig{ // check the full list of available props in structs.go
 			Name:    "You APP Name", // optional prop
@@ -62,8 +59,8 @@ func main() {
 				},
 			},
 		}
-		return c.JSON(http.StatusOK, healthcheck.HealthCheckerDetailed(myApplicationConfig))
+		c.JSON(http.StatusOK, healthcheck.HealthCheckerDetailed(myApplicationConfig))
 	})
 	// Start server
-	e.Logger.Fatal(e.Start(":8888"))
+	e.Run(":8888")
 }

@@ -45,60 +45,68 @@ If you want check the full options in configurations, look this [IntegrationConf
 package main
 
 import (
-  "net/http"
+ "net/http"
 
-  "github.com/gritzkoo/golang-health-checker/pkg/healthcheck"
-  "github.com/labstack/echo"
-  "github.com/labstack/echo/middleware"
+ "github.com/gin-gonic/gin"
+ "github.com/gritzkoo/golang-health-checker/pkg/healthcheck"
 )
 
 func main() {
-  // all the content below is just an example
-  // Echo instance
-  e := echo.New()
-  // Middleware
-  e.Use(middleware.Logger())
-  e.Use(middleware.Recover())
-  // example of simple call
-  e.GET("/health-check/liveness", func(c echo.Context) error {
-    return c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
-  })
-  // example of detailed call
-  e.GET("/health-check/readiness", func(c echo.Context) error {
-    // define all integrations of your application with type healthcheck.ApplicationConfig
-    myApplicationConfig := healthcheck.ApplicationConfig{ // check the full list of available props in structs.go
-      Name:    "You APP Name", // optional prop
-      Version: "V1.0.0",       // optional prop
-      Integrations: []healthcheck.IntegrationConfig{ // mandatory prop
-        {
-          Type: healthcheck.Redis, // this prop will determine the kind of check, the list of types available in structs.go
-          Name: "redis-user-db",   // the name of you integration to display in response
-          Host: "redis",           // you can pass host:port and omit Port attribute
-          Port: "6379",
-          DB:   0, // default value is 0
-        }, {
-          Type: healthcheck.Memcached, // this prop will determine the kind of check, the list of types available in structs.go
-          Name: "Memcached server",    // the name of you integration to display in response
-          Host: "memcache",            // you can pass host:port and omit Port attribute
-          Port: "11211",
-        }, {
-          Type:    healthcheck.Web,             // this prop will determine the kind of check, the list of types available in structs.go
-          Name:    "Github Integration",        // the name of you integration to display in response
-          Host:    "https://github.com/status", // you can pass host:port and omit Port attribute
-          TimeOut: 5,                           // default value to web call is 10s
-          Headers: []healthcheck.HTTPHeader{ // to customize headers to perform a GET request
-            {
-              Key:   "Accept",
-              Value: "application/json",
-            },
-          },
-        },
+ // all the content below is just an example
+ // Gin instance
+ e := gin.Default()
+
+ // example of simple call
+ e.GET("/health-check/liveness", func(c *gin.Context) {
+  c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
+ })
+ // example of detailed call
+ e.GET("/health-check/readiness", func(c *gin.Context) {
+  // define all integrations of your application with type healthcheck.ApplicationConfig
+  myApplicationConfig := healthcheck.ApplicationConfig{ // check the full list of available props in structs.go
+   Name:    "You APP Name", // optional prop
+   Version: "V1.0.0",       // optional prop
+   Integrations: []healthcheck.IntegrationConfig{ // mandatory prop
+    {
+     Type: healthcheck.Redis, // this prop will determine the kind of check, the list of types available in structs.go
+     Name: "redis-user-db",   // the name of you integration to display in response
+     Host: "redis",       // you can pass host:port and omit Port attribute
+     Port: "6379",
+     DB:   0, // default value is 0
+    }, {
+     Type: healthcheck.Memcached, // this prop will determine the kind of check, the list of types available in structs.go
+     Name: "Memcached server",    // the name of you integration to display in response
+     Host: "memcache",           // you can pass host:port and omit Port attribute
+     Port: "11211",
+    }, {
+     Type:    healthcheck.Web,             // this prop will determine the kind of check, the list of types available in structs.go
+     Name:    "Github Integration",        // the name of you integration to display in response
+     Host:    "https://github.com/status", // you can pass host:port and omit Port attribute
+     TimeOut: 5,                           // default value to web call is 10s
+     Headers: []healthcheck.HTTPHeader{ // to customize headers to perform a GET request
+      {
+       Key:   "Accept",
+       Value: "application/json",
       },
-    }
-    return c.JSON(http.StatusOK, healthcheck.HealthCheckerDetailed(myApplicationConfig))
-  })
-  // Start server
-  e.Logger.Fatal(e.Start(":8888"))
+     },
+    }, {
+     Type:    "unknown",                   // this prop will determine the kind of check, the list of types available in structs.go
+     Name:    "Github Integration",        // the name of you integration to display in response
+     Host:    "https://github.com/status", // you can pass host:port and omit Port attribute
+     TimeOut: 5,                           // default value to web call is 10s
+     Headers: []healthcheck.HTTPHeader{ // to customize headers to perform a GET request
+      {
+       Key:   "Accept",
+       Value: "application/json",
+      },
+     },
+    },
+   },
+  }
+  c.JSON(http.StatusOK, healthcheck.HealthCheckerDetailed(myApplicationConfig))
+ })
+ // Start server
+ e.Run(":8888")
 }
 
 ```
@@ -116,30 +124,38 @@ And detailed call will return a JSON as below
 ```json
 {
   "name": "You APP Name",
-  "status": true, # here is the main status of your application when one of the integrations fails.. false will return
+  "status": false, # here is the main status of your application when one of the integrations fails.. false will return
   "version": "V1.0.0",
-  "date": "Mon Jan _2 15:04:05 MST 2006",
-  "Duration": 0.53102304,
+  "date": "2021-08-27 08:18:06.762044096 -0300 -03 m=+24.943851850",
+  "duration": 0.283596049,
   "integrations": [
     {
-      "name": "redis-user-db",
-      "kind": "Redis DB",
-      "status": true,
-      "response_time": 0.001160881,
-      "url": "localhost:6379"
+      "name": "Github Integration",
+      "kind": "unknown",
+      "status": false,
+      "response_time": 0,
+      "url": "https://github.com/status",
+      "errors": "unsuported type of:unknown"
     },
     {
       "name": "Memcached server",
       "kind": "Memcached DB",
       "status": true,
-      "response_time": 0.036013866,
+      "response_time": 0.000419116,
       "url": "localhost:11211"
+    },
+    {
+      "name": "redis-user-db",
+      "kind": "Redis DB",
+      "status": true,
+      "response_time": 0.000845594,
+      "url": "localhost:6379"
     },
     {
       "name": "Github Integration",
       "kind": "Web service API",
       "status": true,
-      "response_time": 0.493425975,
+      "response_time": 0.283513713,
       "url": "https://github.com/status"
     }
   ]
