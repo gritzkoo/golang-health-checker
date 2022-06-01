@@ -34,7 +34,7 @@ indent_style = tab
 [*.md]
 trim_trailing_whitespace = false
 
-[*.go]
+[*.{go,mod,sum}]
 indent_style = tab
 indent_size = 4
 

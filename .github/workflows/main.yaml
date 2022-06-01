@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        redis-version: [4, 5, 6]
-        go: ["1.14", "1.15", "1.16", "1.17", "1.18"]
+        redis-version: [6]
+        go: ["1.17", "1.18"]
     steps:
       - uses: actions/checkout@v2
       - name: Sets up a Memcached server
@@ -48,4 +48,4 @@ jobs:
     steps:
       - uses: rymndhng/release-on-push-action@master
         with:
-          bump_version_scheme: minor
+          bump_version_scheme: patch

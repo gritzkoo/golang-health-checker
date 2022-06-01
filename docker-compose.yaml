@@ -2,12 +2,17 @@ version: "3.7"
 
 services:
   test:
+    &default
     container_name: golang_app
-    build:
-      context: .
-    command: go test ./...
+    image: golang:1.18-alpine
+    working_dir: /app
+    command: sh -c "go test -v ./..."
+    environment:
+      - CGO_ENABLED=0
+      - GOOS=linux
     volumes:
-      - .:/go/src/app
+      - .:/app
+      - godir:/go
     ports:
       - 8888:8888
     depends_on:
@@ -15,17 +20,9 @@ services:
       - memcache
 
   app:
+    <<: *default
     container_name: golang_app
-    build:
-      context: .
     command: go run main.go
-    volumes:
-      - .:/go/src/app
-    ports:
-      - 8888:8888
-    depends_on:
-      - redis
-      - memcache
 
   redis:
     image: redis
@@ -40,3 +37,6 @@ services:
 networks:
   default:
     name: gritzkoo-golang-health-checker
+
+volumes:
+  godir: {}
