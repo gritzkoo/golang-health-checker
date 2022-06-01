@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/gritzkoo/golang-health-checker/pkg/healthcheck"
+	"github.com/gritzkoo/golang-health-checker/v2/pkg/healthcheck"
 )
 
 func main() {

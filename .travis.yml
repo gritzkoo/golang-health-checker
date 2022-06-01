@@ -14,7 +14,7 @@ matrix:
   allow_failures:
     - go: tip
 
-go_import_path: github.com/gritzkoo/golang-health-checker
+go_import_path: github.com/gritzkoo/golang-health-checker/v2
 
 before_install:
   - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s --

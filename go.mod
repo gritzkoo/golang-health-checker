@@ -1,4 +1,4 @@
-module github.com/gritzkoo/golang-health-checker
+module github.com/gritzkoo/golang-health-checker/v2
 
 go 1.18
 
