@@ -6,8 +6,8 @@ services:
   - memcached
 
 go:
-  - 1.17.x
-  - 1.18.x
+  - 1.14.x
+  - 1.15.x
   - tip
 
 matrix:
