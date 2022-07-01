@@ -48,7 +48,7 @@ jobs:
           #(default) total_views_week_color: brightgreen
           #(default) total_clones_week_color: brightgreen
           #(default) logo: github
-          year: ${{ steps.date.outputs.date }}
+          #year: ${{ steps.date.outputs.date }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.7.3
