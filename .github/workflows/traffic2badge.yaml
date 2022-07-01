@@ -36,7 +36,7 @@ jobs:
         id: traffic
         uses: yi-Xu-0100/traffic-to-badge@v1.4.0
         with:
-          my_token: ${{ secrets.GITHUB_TOKEN }}
+          my_token: ${{ secrets.TRAFFIC_TOKEN }}
           #(default) static_list: ${{ github.repository }}
           #(default) traffic_branch: traffic
           #(default) views_color: brightgreen
