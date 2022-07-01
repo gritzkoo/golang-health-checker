@@ -1,9 +1,13 @@
 # golang-health-checker
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/gritzkoo/golang-health-checker/pkg/healthcheck.svg)](https://pkg.go.dev/github.com/gritzkoo/golang-health-checker/pkg/healthcheck)
 ![test](https://github.com/gritzkoo/golang-health-checker/workflows/test/badge.svg?branch=master)
 [![Build Status](https://travis-ci.org/gritzkoo/golang-health-checker.svg?branch=master)](https://travis-ci.org/gritzkoo/golang-health-checker)
 [![Coverage Status](https://coveralls.io/repos/github/gritzkoo/golang-health-checker/badge.svg?branch=master)](https://coveralls.io/github/gritzkoo/golang-health-checker?branch=master)
+![views](https://raw.githubusercontent.com/gritzkoo/golang-health-checker/traffic/traffic-golang-health-checker/views.svg)
+![views per week](https://raw.githubusercontent.com/gritzkoo/golang-health-checker/traffic/traffic-golang-health-checker/views_per_week.svg)
+![clones](https://raw.githubusercontent.com/gritzkoo/golang-health-checker/traffic/traffic-golang-health-checker/clones.svg)
+![clones per week](https://raw.githubusercontent.com/gritzkoo/golang-health-checker/traffic/traffic-golang-health-checker/clones_per_week.svg)
+[![Go Reference](https://pkg.go.dev/badge/github.com/gritzkoo/golang-health-checker/pkg/healthcheck.svg)](https://pkg.go.dev/github.com/gritzkoo/golang-health-checker/pkg/healthcheck)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/gritzkoo/golang-health-checker)
 ![GitHub repo size](https://img.shields.io/github/repo-size/gritzkoo/golang-health-checker)
 ![GitHub](https://img.shields.io/github/license/gritzkoo/golang-health-checker)
@@ -14,7 +18,7 @@ A simple package to allow you to track your application healthy providing two wa
 
 *__Simple__*: will return a "fully functional" string and with this, you can check if your application is online and responding without any integration check
 
-*__Detailed__*: will return a detailed status for any integration configuration informed on the integrations just like in the examples below
+*__Detailed__*: will return a detailed status for any integration configuration informed on the integrations, just like in the examples below
 
 ## How to install
 
