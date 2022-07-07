@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 19,
-    "uniques": 9
+    "count": 14,
+    "uniques": 6
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/workflows/traffic2badge.yaml",
@@ -18,16 +18,16 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
-    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
-    "count": 4,
-    "uniques": 3
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/actions",
     "title": "golang-health-checker/traffic2badge.yaml at master · gritzkoo/golang-health-c...",
     "count": 4,
     "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
+    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
+    "count": 3,
+    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/.github/workflows/traffic2badge.yaml",
@@ -42,21 +42,21 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/health_checker.go at master · gritzkoo/golang-health-ch...",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
     "title": "golang-health-checker/structs.go at master · gritzkoo/golang-health-checker ·...",
     "count": 2,
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
-    "title": "golang-health-checker/README.md at master · gritzkoo/golang-health-checker",
+    "path": "/gritzkoo/golang-health-checker/edit/master/.github/workflows/traffic2badge.yaml",
+    "title": "Editing golang-health-checker/traffic2badge.yaml at master · gritzkoo/golang-...",
     "count": 2,
-    "uniques": 2
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/runs/2599455524",
+    "title": "traffic2badge · gritzkoo/golang-health-checker@cf72cca",
+    "count": 1,
+    "uniques": 1
   }
 ]
