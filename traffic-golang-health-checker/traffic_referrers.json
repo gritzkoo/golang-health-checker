@@ -1,11 +1,11 @@
 [
   {
-    "referrer": "pkg.go.dev",
-    "count": 3,
-    "uniques": 3
+    "referrer": "Google",
+    "count": 2,
+    "uniques": 2
   },
   {
-    "referrer": "Google",
+    "referrer": "pkg.go.dev",
     "count": 2,
     "uniques": 2
   },
