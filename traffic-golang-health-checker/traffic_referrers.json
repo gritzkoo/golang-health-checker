@@ -5,14 +5,14 @@
     "uniques": 3
   },
   {
-    "referrer": "Google",
-    "count": 5,
-    "uniques": 5
-  },
-  {
     "referrer": "yandex.ru",
     "count": 5,
     "uniques": 2
+  },
+  {
+    "referrer": "Google",
+    "count": 3,
+    "uniques": 3
   },
   {
     "referrer": "github.com",
