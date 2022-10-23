@@ -1,12 +1,12 @@
 [
   {
-    "referrer": "Google",
-    "count": 14,
-    "uniques": 9
-  },
-  {
     "referrer": "pkg.go.dev",
     "count": 11,
     "uniques": 3
+  },
+  {
+    "referrer": "Google",
+    "count": 10,
+    "uniques": 8
   }
 ]
