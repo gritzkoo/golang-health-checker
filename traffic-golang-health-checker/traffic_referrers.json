@@ -5,13 +5,13 @@
     "uniques": 7
   },
   {
-    "referrer": "Google",
-    "count": 12,
-    "uniques": 6
-  },
-  {
     "referrer": "pkg.go.dev",
     "count": 12,
     "uniques": 3
+  },
+  {
+    "referrer": "Google",
+    "count": 11,
+    "uniques": 5
   }
 ]
