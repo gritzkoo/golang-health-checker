@@ -6,12 +6,12 @@
   },
   {
     "referrer": "Google",
-    "count": 10,
+    "count": 9,
     "uniques": 8
   },
   {
     "referrer": "pkg.go.dev",
-    "count": 3,
-    "uniques": 3
+    "count": 2,
+    "uniques": 2
   }
 ]
