@@ -4,12 +4,15 @@ services:
   test:
     &default
     container_name: golang_app
-    image: golang:1.18-alpine
+    image: golang:1.20-alpine
     working_dir: /app
     command: sh -c "go test -v ./..."
     environment:
-      - CGO_ENABLED=0
-      - GOOS=linux
+      CGO_ENABLED: 0
+      GOOS: linux
+      REDIS_HOST: redis
+      MEMCACHE_HOST: memcache
+
     volumes:
       - .:/app
       - godir:/go

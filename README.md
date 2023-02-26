@@ -49,6 +49,7 @@ If you want to check the full options in configurations, look at this [Integrati
 - [x] Redis
 - [x] Memcached
 - [x] Web integration (https)
+- [x] Customized test functions 
 
 ```go
 package main
@@ -109,6 +110,16 @@ func main() {
        Value: "application/json",
       },
      },
+    }, {
+      Type: healthcheck.Custom,               // this prop will determine the kind of check, the list of types available in structs.go
+      Name: "Testing my customized function", // the name of you integration to display in response
+      Host: "Some info to help debug",
+      Handle: func() error {
+        // do wherever test you need using the code of your
+        // aplication and return an error or nil
+        // good examples of use is test DB connections, AWS services like SQS SNS S3 DYNAMODB, ETC
+        return nil
+      },
     },
    },
   }
@@ -147,10 +158,17 @@ And detailed call will return a JSON as below
       "errors": "unsuported type of:unknown"
     },
     {
+      "name": "Testing my customized function",
+      "kind": "Customized test function",
+      "status": true,
+      "response_time": 0,
+      "url": "Some info to help debug"
+    },
+    {
       "name": "Memcached server",
       "kind": "Memcached DB",
       "status": true,
-      "response_time": 0.000419116,
+      "response_time": 4,
       "url": "localhost:11211"
     },
     {

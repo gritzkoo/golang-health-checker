@@ -2,6 +2,8 @@ package main
 
 import (
 	"net/http"
+	"os"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gritzkoo/golang-health-checker/pkg/healthcheck"
@@ -24,15 +26,15 @@ func main() {
 			Version: "V1.0.0",       // optional prop
 			Integrations: []healthcheck.IntegrationConfig{ // mandatory prop
 				{
-					Type: healthcheck.Redis, // this prop will determine the kind of check, the list of types available in structs.go
-					Name: "redis-user-db",   // the name of you integration to display in response
-					Host: "localhost",       // you can pass host:port and omit Port attribute
+					Type: healthcheck.Redis,       // this prop will determine the kind of check, the list of types available in structs.go
+					Name: "redis-user-db",         // the name of you integration to display in response
+					Host: os.Getenv("REDIS_HOST"), // you can pass host:port and omit Port attribute
 					Port: "6379",
 					DB:   0, // default value is 0
 				}, {
-					Type: healthcheck.Memcached, // this prop will determine the kind of check, the list of types available in structs.go
-					Name: "Memcached server",    // the name of you integration to display in response
-					Host: "localhost",           // you can pass host:port and omit Port attribute
+					Type: healthcheck.Memcached,      // this prop will determine the kind of check, the list of types available in structs.go
+					Name: "Memcached server",         // the name of you integration to display in response
+					Host: os.Getenv("MEMCACHE_HOST"), // you can pass host:port and omit Port attribute
 					Port: "11211",
 				}, {
 					Type:    healthcheck.Web,             // this prop will determine the kind of check, the list of types available in structs.go
@@ -56,6 +58,21 @@ func main() {
 							Value: "application/json",
 						},
 					},
+				}, {
+					Type: healthcheck.Custom,               // this prop will determine the kind of check, the list of types available in structs.go
+					Name: "Testing my customized function", // the name of you integration to display in response
+					Host: "none",
+					Handle: func() error {
+						// do wherever test you need using the code of your
+						// aplication and return an error or nil
+						time.Sleep(time.Second * time.Duration(1))
+						return nil
+					},
+				}, {
+					Type:    healthcheck.Web,
+					Name:    "web integration with timeout example",
+					Host:    "https://jsfiddle.net",
+					TimeOut: 1,
 				},
 			},
 		}
