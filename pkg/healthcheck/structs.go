@@ -20,9 +20,9 @@ type Integration struct {
 	Name         string  `json:"name"`
 	Kind         string  `json:"kind"`
 	Status       bool    `json:"status"`
-	ResponseTime float64 `json:"response_time"`
+	ResponseTime float64 `json:"response_time"` //in seconds
 	URL          string  `json:"url"`
-	Error        error   `json:"errors,omitempty"`
+	Error        string  `json:"error,omitempty"` // error.Error()
 }
 
 // Auth is a default struct to map user/pass protocol
@@ -48,6 +48,7 @@ type IntegrationConfig struct {
 	DB      int          `json:"db,omitempty"`      // default value is 0
 	TimeOut int          `json:"timeout,omitempty"` // default value: 10
 	Auth    Auth         `json:"auth,omitempty"`
+	Handle  func() error // custom func validtion
 }
 
 // HTTPHeader used to setup webservices integrations
@@ -61,11 +62,13 @@ const (
 	Redis     = "redis"
 	Memcached = "memcached"
 	Web       = "web"
+	Custom    = "custom"
 )
 
 // Mapped typs for kinds of integrations
 const (
-	RedisIntegration      = "Redis DB"
-	MemcachedIntegration  = "Memcached DB"
-	WebServiceIntegration = "Web service API"
+	RedisIntegration       = "Redis DB"
+	MemcachedIntegration   = "Memcached DB"
+	WebServiceIntegration  = "Web service API"
+	CustomizedTestFunction = "Customized test function"
 )

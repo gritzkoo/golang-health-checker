@@ -1,13 +1,12 @@
 name: test
-on: [push, pull_request]
+on: [push]
 jobs:
-
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         redis-version: [6]
-        go: ["1.17", "1.18"]
+        go: ["1.20"]
     steps:
       - uses: actions/checkout@v2
       - name: Sets up a Memcached server
@@ -19,7 +18,10 @@ jobs:
       - uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go }}
-      - run: go test -v -coverprofile=profile.cov ./...
+      - name: install deps
+        run: go mod tidy
+      - name: run test
+        run: go test -v -coverprofile=profile.cov ./...
 
       - name: Send coverage to coverall.io
         uses: shogo82148/actions-goveralls@v1
@@ -47,5 +49,11 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: rymndhng/release-on-push-action@master
+        id: release_package
         with:
           bump_version_scheme: patch
+      - name: update go.pkg.dev with new version
+        env:
+          VERSION: ${{steps.release_package.outputs.version}}
+        run: curl https://sum.golang.org/lookup/github.com/${GITHUB_REPOSITORY}@${VERSION}
+

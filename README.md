@@ -1,7 +1,7 @@
 # golang-health-checker
 
 ![test](https://github.com/gritzkoo/golang-health-checker/workflows/test/badge.svg?branch=master)
-[![Build Status](https://travis-ci.org/gritzkoo/golang-health-checker.svg?branch=master)](https://travis-ci.org/gritzkoo/golang-health-checker)
+[![build](https://github.com/gritzkoo/golang-health-checker/actions/workflows/build.yaml/badge.svg)](https://github.com/gritzkoo/golang-health-checker/actions/workflows/build.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/gritzkoo/golang-health-checker/badge.svg?branch=master)](https://coveralls.io/github/gritzkoo/golang-health-checker?branch=master)
 ![views](https://raw.githubusercontent.com/gritzkoo/golang-health-checker/traffic/traffic-golang-health-checker/views.svg)
 ![views per week](https://raw.githubusercontent.com/gritzkoo/golang-health-checker/traffic/traffic-golang-health-checker/views_per_week.svg)
@@ -20,15 +20,19 @@ A simple package to allow you to track your application healthy providing two wa
 
 *__Detailed__*: will return a detailed status for any integration configuration informed on the integrations, just like in the examples below
 
+___
+>This package has a `lightweight` version with no extra dependencies. If you are looking to something more simple, please check [golnag-health-checker-lw on github](https://github.com/gritzkoo/golang-health-checker-lw "golang health checker lightweight") or [golang-health-checke-lw at go.pkg.dev](https://pkg.go.dev/github.com/gritzkoo/golang-health-checker-lw "golang health checker lightweight at go.pkg.dev")
+___
+
 ## How to install
 
-If you are just starting a Go projetct you must start a go.mod file like below
+If you are just starting a Go project you must start a go.mod file like below
 
 ```sh
 go mod init github.com/my/repo
 ```
 
-Or else, you already has a started project, just run the command below
+Or else, if you already have a started project, just run the command below
 
 ```sh
 go get github.com/gritzkoo/golang-health-checker
@@ -38,13 +42,14 @@ go get github.com/gritzkoo/golang-health-checker
 
 In this example, we will use the Echo web server to show how to import and use *Simple* and *Detailed* calls.
 
-If you want check the full options in configurations, look this [IntegrationConfig struct](https://github.com/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go#L45-L54)
+If you want to check the full options in configurations, look at this [IntegrationConfig struct](https://github.com/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go#L45-L54)
 
 ### Available integrations
 
 - [x] Redis
 - [x] Memcached
 - [x] Web integration (https)
+- [x] Customized test functions 
 
 ```go
 package main
@@ -105,6 +110,16 @@ func main() {
        Value: "application/json",
       },
      },
+    }, {
+      Type: healthcheck.Custom,               // this prop will determine the kind of check, the list of types available in structs.go
+      Name: "Testing my customized function", // the name of you integration to display in response
+      Host: "Some info to help debug",
+      Handle: func() error {
+        // do wherever test you need using the code of your
+        // aplication and return an error or nil
+        // good examples of use is test DB connections, AWS services like SQS SNS S3 DYNAMODB, ETC
+        return nil
+      },
     },
    },
   }
@@ -143,10 +158,17 @@ And detailed call will return a JSON as below
       "errors": "unsuported type of:unknown"
     },
     {
+      "name": "Testing my customized function",
+      "kind": "Customized test function",
+      "status": true,
+      "response_time": 0,
+      "url": "Some info to help debug"
+    },
+    {
       "name": "Memcached server",
       "kind": "Memcached DB",
       "status": true,
-      "response_time": 0.000419116,
+      "response_time": 4,
       "url": "localhost:11211"
     },
     {
@@ -169,41 +191,52 @@ And detailed call will return a JSON as below
 
 ## Kubernetes liveness and readiness probing
 
-And then, you could call this endpoints manually to see your application health, but, if you are using modern kubernetes deployment, you can config your chart to check your application with the setup below:
+And then, you could call these endpoints manually to see your application health, but, if you are using modern kubernetes deployment, you can config your chart to check your application with the setup below:
 
 ```yaml
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  labels:
-    test: liveness
-  name: liveness-http
+  name: my-golang-app
 spec:
-  containers:
-  - name: liveness
-    image: 'go' #your application image
-    args:
-    - /server
-    livenessProbe:
-      httpGet:
-        path: /health-check/liveness
-        port: 80
-        httpHeaders:
-        - name: Custom-Header
-          value: Awesome
-      initialDelaySeconds: 3
-      periodSeconds: 3
-  - name: readiness
-    image: 'go' #your application image
-    args:
-    - /server
-    readinessProbe:
-      httpGet:
-        path: /health-check/readiness
-        port: 80
-        httpHeaders:
-        - name: Custom-Header
-          value: Awesome
-      initialDelaySeconds: 3
-      periodSeconds: 3
+  selector:
+    matchLabels:
+      app: my-golang-app
+  template:
+    metadata:
+      labels:
+        app: my-golang-app
+    spec:
+      containers:
+      - name: my-golang-app
+        image: your-app-image:tag
+        resources:
+          request:
+            cpu: 10m
+            memory: 5Mi
+          limits:
+            cpu: 50m
+            memory: 50Mi 
+        livenessProbe:
+          httpGet:
+            path: /health-check/liveness
+            port: 8888
+            scheme: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 2
+          successThreshold: 1
+        readinessProbe:
+          httpGet:
+            path: /health-check/liveness
+            port: 8888
+            scheme: http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 2
+          successThreshold: 1
+        ports:
+        - containerPort: 8888
 ```
