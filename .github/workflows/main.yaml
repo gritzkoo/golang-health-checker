@@ -1,13 +1,12 @@
 name: test
 on: [push, pull_request]
 jobs:
-
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         redis-version: [6]
-        go: ["1.17", "1.18"]
+        go: ["1.18", "1.19", "1.20"]
     steps:
       - uses: actions/checkout@v2
       - name: Sets up a Memcached server
@@ -47,5 +46,11 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: rymndhng/release-on-push-action@master
+        id: release_package
         with:
           bump_version_scheme: patch
+      - name: update go.pkg.dev with new version
+        env:
+          VERSION: ${{steps.release_package.outputs.version}}
+        run: curl https://sum.golang.org/lookup/github.com/${GITHUB_REPOSITORY}@${VERSION}
+
