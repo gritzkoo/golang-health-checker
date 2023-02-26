@@ -29,6 +29,7 @@ func TestSimpleChecker(t *testing.T) {
 
 type detailedListProvider struct {
 	Expected bool
+	FakeHttp bool
 	Config   IntegrationConfig
 }
 
@@ -92,8 +93,8 @@ var detailedDataProvider = []detailedListProvider{
 		Expected: false,
 		Config: IntegrationConfig{
 			Type:    Web,
-			Name:    "go-test-with-timeout",
-			Host:    "https://jsfiddle.net",
+			Name:    "go-test-with-error",
+			Host:    "tcp://jsfiddle.net",
 			TimeOut: 1,
 		},
 	}, {
