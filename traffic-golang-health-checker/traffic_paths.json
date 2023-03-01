@@ -3,18 +3,18 @@
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
     "count": 50,
-    "uniques": 25
+    "uniques": 24
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
     "title": "golang-health-checker/health_checker.go at master · gritzkoo/golang-health-ch...",
-    "count": 11,
+    "count": 10,
     "uniques": 5
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
-    "count": 8,
+    "count": 9,
     "uniques": 5
   },
   {
@@ -30,6 +30,12 @@
     "uniques": 1
   },
   {
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/structs.go at master · gritzkoo/golang-health-checker ·...",
+    "count": 3,
+    "uniques": 3
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/actions/runs/4276811361/jobs/7445184107",
     "title": "[v1.7.0] - Release/update dependencies include `custom` kind update d… · grit...",
     "count": 3,
@@ -40,12 +46,6 @@
     "title": "Comparing master...release/update-dependencies · gritzkoo/golang-health-checker",
     "count": 3,
     "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
-    "title": "golang-health-checker/structs.go at master · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/4276811361",
