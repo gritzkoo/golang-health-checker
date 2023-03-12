@@ -2,20 +2,14 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 36,
-    "uniques": 20
+    "count": 22,
+    "uniques": 18
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
-    "count": 5,
+    "count": 6,
     "uniques": 4
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "Actions · gritzkoo/golang-health-checker",
-    "count": 5,
-    "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
@@ -24,39 +18,21 @@
     "uniques": 4
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/18",
-    "title": "[v1.6.1] - Release/update dependencies by gritzkoo · Pull Request #18 · gritz...",
-    "count": 4,
+    "path": "/gritzkoo/golang-health-checker/blob/b829acdc74cf9f3b1a8d466aaae894d04101bfcd/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/structs.go at b829acdc74cf9f3b1a8d466aaae894d04101bfcd ...",
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/4276811361/jobs/7445184107",
-    "title": "[v1.7.0] - Release/update dependencies include `custom` kind update d… · grit...",
-    "count": 3,
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/structs.go at master · gritzkoo/golang-health-checker ·...",
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/compare/release/update-dependencies",
-    "title": "Comparing master...release/update-dependencies · gritzkoo/golang-health-checker",
-    "count": 3,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/4276811361",
-    "title": "[v1.7.0] - Release/update dependencies include `custom` kind update d… · grit...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/workflows/main.yaml",
-    "title": "Actions · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "Pull requests · gritzkoo/golang-health-checker",
-    "count": 2,
+    "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/main.go",
+    "title": "golang-health-checker/main.go at v1.7.0 · gritzkoo/golang-health-checker · Gi...",
+    "count": 1,
     "uniques": 1
   }
 ]
