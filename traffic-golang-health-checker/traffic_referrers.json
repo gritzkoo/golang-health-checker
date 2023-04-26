@@ -3,10 +3,5 @@
     "referrer": "Google",
     "count": 6,
     "uniques": 6
-  },
-  {
-    "referrer": "pkg.go.dev",
-    "count": 3,
-    "uniques": 1
   }
 ]
