@@ -1,15 +1,15 @@
 {
-  "count": 6,
-  "uniques": 4,
+  "count": 3,
+  "uniques": 2,
   "views": [
-    {
-      "timestamp": "2023-05-17T00:00:00Z",
-      "count": 5,
-      "uniques": 3
-    },
     {
       "timestamp": "2023-05-18T00:00:00Z",
       "count": 1,
+      "uniques": 1
+    },
+    {
+      "timestamp": "2023-05-24T00:00:00Z",
+      "count": 2,
       "uniques": 1
     }
   ]
