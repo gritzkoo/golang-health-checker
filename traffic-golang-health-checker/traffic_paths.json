@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 7,
-    "uniques": 7
+    "count": 8,
+    "uniques": 8
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/main.go",
@@ -15,6 +15,18 @@
     "path": "/gritzkoo/golang-health-checker/issues",
     "title": "Issues · gritzkoo/golang-health-checker",
     "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/graphs/commit-activity",
+    "title": "Commit Activity · gritzkoo/golang-health-checker · GitHub",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pulse",
+    "title": "Pulse · gritzkoo/golang-health-checker · GitHub",
+    "count": 1,
     "uniques": 1
   }
 ]
