@@ -2,19 +2,13 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 21,
+    "count": 23,
     "uniques": 13
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
     "count": 3,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/docker-compose.yaml",
-    "title": "golang-health-checker/docker-compose.yaml at master · gritzkoo/golang-health-...",
-    "count": 2,
     "uniques": 1
   },
   {
@@ -56,6 +50,12 @@
   {
     "path": "/gritzkoo/golang-health-checker/security/dependabot",
     "title": "Dependabot alerts · gritzkoo/golang-health-checker",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/security/secret-scanning",
+    "title": "Secret Scanning · gritzkoo/golang-health-checker",
     "count": 1,
     "uniques": 1
   }
