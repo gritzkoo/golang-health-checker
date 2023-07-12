@@ -1,17 +1,17 @@
 [
   {
+    "referrer": "Google",
+    "count": 10,
+    "uniques": 8
+  },
+  {
     "referrer": "pkg.go.dev",
     "count": 8,
     "uniques": 1
   },
   {
-    "referrer": "Google",
-    "count": 6,
-    "uniques": 6
-  },
-  {
     "referrer": "statics.teams.cdn.office.net",
-    "count": 6,
+    "count": 4,
     "uniques": 1
   },
   {
@@ -21,6 +21,11 @@
   },
   {
     "referrer": "yandex.com",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "referrer": "git.banki.ru",
     "count": 1,
     "uniques": 1
   }
