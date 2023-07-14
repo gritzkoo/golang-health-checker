@@ -18,12 +18,6 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/main.go",
-    "title": "golang-health-checker/main.go at v1.7.0 · gritzkoo/golang-health-checker · Gi...",
-    "count": 4,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
     "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
     "count": 2,
@@ -32,12 +26,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
     "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at v1.7.0 · gritzkoo/...",
     "count": 2,
     "uniques": 1
   },
@@ -54,9 +42,9 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/tree/v1.7.0/pkg/healthcheck",
-    "title": "golang-health-checker/pkg/healthcheck at v1.7.0 · gritzkoo/golang-health-chec...",
-    "count": 2,
+    "path": "/gritzkoo/golang-health-checker/blob/master/.gitignore",
+    "title": "golang-health-checker/.gitignore at master · gritzkoo/golang-health-checker ·...",
+    "count": 1,
     "uniques": 1
   }
 ]
