@@ -1,22 +1,17 @@
 [
   {
     "referrer": "Google",
-    "count": 66,
-    "uniques": 19
+    "count": 62,
+    "uniques": 17
   },
   {
     "referrer": "github.com",
-    "count": 10,
+    "count": 11,
     "uniques": 4
   },
   {
     "referrer": "pkg.go.dev",
     "count": 2,
     "uniques": 2
-  },
-  {
-    "referrer": "git.banki.ru",
-    "count": 1,
-    "uniques": 1
   }
 ]
