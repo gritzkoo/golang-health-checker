@@ -5,18 +5,13 @@
     "uniques": 9
   },
   {
+    "referrer": "pkg.go.dev",
+    "count": 4,
+    "uniques": 3
+  },
+  {
     "referrer": "DuckDuckGo",
     "count": 4,
     "uniques": 1
-  },
-  {
-    "referrer": "pkg.go.dev",
-    "count": 3,
-    "uniques": 2
-  },
-  {
-    "referrer": "github.com",
-    "count": 2,
-    "uniques": 2
   }
 ]
