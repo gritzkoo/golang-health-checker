@@ -5,14 +5,14 @@
     "uniques": 10
   },
   {
-    "referrer": "pkg.go.dev",
+    "referrer": "github.com",
     "count": 3,
-    "uniques": 3
+    "uniques": 1
   },
   {
-    "referrer": "github.com",
+    "referrer": "pkg.go.dev",
     "count": 2,
-    "uniques": 1
+    "uniques": 2
   },
   {
     "referrer": "yandex.ru",
