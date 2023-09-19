@@ -1,8 +1,8 @@
 [
   {
     "referrer": "Google",
-    "count": 31,
-    "uniques": 16
+    "count": 30,
+    "uniques": 15
   },
   {
     "referrer": "pkg.go.dev",
@@ -11,8 +11,8 @@
   },
   {
     "referrer": "github.com",
-    "count": 6,
-    "uniques": 4
+    "count": 5,
+    "uniques": 3
   },
   {
     "referrer": "presearch.com",
