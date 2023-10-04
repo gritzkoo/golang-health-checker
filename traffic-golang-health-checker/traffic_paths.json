@@ -6,6 +6,24 @@
     "uniques": 9
   },
   {
+    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
+    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
+    "count": 8,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
+    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
+    "count": 7,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/main.go",
+    "title": "golang-health-checker/main.go at master · gritzkoo/golang-health-checker · Gi...",
+    "count": 6,
+    "uniques": 2
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/main.go",
     "title": "golang-health-checker/main.go at v1.7.0 · gritzkoo/golang-health-checker",
     "count": 6,
@@ -18,14 +36,8 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/main.go",
-    "title": "golang-health-checker/main.go at master · gritzkoo/golang-health-checker",
-    "count": 3,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
     "count": 2,
     "uniques": 1
   },
@@ -44,18 +56,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/Dockerfile",
     "title": "golang-health-checker/Dockerfile at v1.7.0 · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/go.mod",
-    "title": "golang-health-checker/go.mod at v1.7.0 · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/go.sum",
-    "title": "golang-health-checker/go.sum at v1.7.0 · gritzkoo/golang-health-checker",
     "count": 2,
     "uniques": 1
   }
