@@ -6,8 +6,13 @@
   },
   {
     "referrer": "Google",
-    "count": 19,
-    "uniques": 14
+    "count": 30,
+    "uniques": 18
+  },
+  {
+    "referrer": "yandex.ru",
+    "count": 5,
+    "uniques": 2
   },
   {
     "referrer": "page.itslearning.com",
@@ -18,10 +23,5 @@
     "referrer": "pkg.go.dev",
     "count": 3,
     "uniques": 3
-  },
-  {
-    "referrer": "yandex.ru",
-    "count": 1,
-    "uniques": 1
   }
 ]
