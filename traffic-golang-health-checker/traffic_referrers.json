@@ -10,17 +10,17 @@
     "uniques": 5
   },
   {
-    "referrer": "page.itslearning.com",
-    "count": 5,
-    "uniques": 2
-  },
-  {
     "referrer": "yandex.ru",
     "count": 4,
     "uniques": 1
   },
   {
     "referrer": "pkg.go.dev",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "referrer": "page.itslearning.com",
     "count": 1,
     "uniques": 1
   }
