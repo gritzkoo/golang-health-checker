@@ -6,13 +6,18 @@
   },
   {
     "referrer": "Google",
-    "count": 7,
-    "uniques": 3
+    "count": 9,
+    "uniques": 5
   },
   {
     "referrer": "github.com",
     "count": 5,
     "uniques": 4
+  },
+  {
+    "referrer": "DuckDuckGo",
+    "count": 1,
+    "uniques": 1
   },
   {
     "referrer": "page.itslearning.com",
