@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 16,
-    "uniques": 13
+    "count": 13,
+    "uniques": 11
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
@@ -24,38 +24,14 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/19",
-    "title": "chore: update dependencies by gritzkoo · Pull Request #19 · gritzkoo/golang-h...",
-    "count": 3,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/blob/v1.7.1/main.go",
     "title": "golang-health-checker/main.go at v1.7.1 · gritzkoo/golang-health-checker",
     "count": 2,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "Workflow runs · gritzkoo/golang-health-checker",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/7321221262",
-    "title": "chore: update dependencies (#19) · gritzkoo/golang-health-checker@27cb46e",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/7321221262/job/19941337857",
-    "title": "chore: update dependencies (#19) · gritzkoo/golang-health-checker@27cb46e",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pull/19/files",
-    "title": "chore: update dependencies by gritzkoo · Pull Request #19 · gritzkoo/golang-h...",
+    "path": "/gritzkoo/golang-health-checker/tree/master",
+    "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
     "count": 1,
     "uniques": 1
   }
