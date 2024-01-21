@@ -1,8 +1,8 @@
 [
   {
     "referrer": "Google",
-    "count": 10,
-    "uniques": 9
+    "count": 11,
+    "uniques": 10
   },
   {
     "referrer": "Bing",
@@ -11,8 +11,8 @@
   },
   {
     "referrer": "pkg.go.dev",
-    "count": 2,
-    "uniques": 1
+    "count": 5,
+    "uniques": 2
   },
   {
     "referrer": "yandex.ru",
