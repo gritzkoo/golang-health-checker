@@ -2,7 +2,7 @@
   {
     "referrer": "Google",
     "count": 11,
-    "uniques": 10
+    "uniques": 9
   },
   {
     "referrer": "Bing",
@@ -13,10 +13,5 @@
     "referrer": "pkg.go.dev",
     "count": 5,
     "uniques": 2
-  },
-  {
-    "referrer": "yandex.ru",
-    "count": 1,
-    "uniques": 1
   }
 ]
