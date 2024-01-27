@@ -1,22 +1,22 @@
 [
   {
-    "referrer": "Google",
+    "referrer": "github.com",
     "count": 12,
-    "uniques": 10
+    "uniques": 2
   },
   {
-    "referrer": "github.com",
+    "referrer": "Google",
     "count": 11,
-    "uniques": 1
+    "uniques": 9
+  },
+  {
+    "referrer": "pkg.go.dev",
+    "count": 11,
+    "uniques": 3
   },
   {
     "referrer": "Bing",
     "count": 6,
     "uniques": 1
-  },
-  {
-    "referrer": "pkg.go.dev",
-    "count": 5,
-    "uniques": 2
   }
 ]
