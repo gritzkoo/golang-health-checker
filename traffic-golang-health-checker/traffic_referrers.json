@@ -1,13 +1,13 @@
 [
   {
     "referrer": "Google",
-    "count": 30,
-    "uniques": 8
+    "count": 32,
+    "uniques": 10
   },
   {
     "referrer": "github.com",
-    "count": 19,
-    "uniques": 8
+    "count": 20,
+    "uniques": 9
   },
   {
     "referrer": "pkg.go.dev",
