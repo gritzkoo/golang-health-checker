@@ -1,17 +1,17 @@
 [
   {
-    "referrer": "pkg.go.dev",
-    "count": 18,
-    "uniques": 2
+    "referrer": "github.com",
+    "count": 21,
+    "uniques": 7
   },
   {
     "referrer": "Google",
-    "count": 12,
-    "uniques": 10
+    "count": 16,
+    "uniques": 12
   },
   {
-    "referrer": "github.com",
-    "count": 12,
-    "uniques": 9
+    "referrer": "pkg.go.dev",
+    "count": 6,
+    "uniques": 1
   }
 ]
