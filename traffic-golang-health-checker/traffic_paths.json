@@ -2,13 +2,19 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 33,
-    "uniques": 20
+    "count": 35,
+    "uniques": 23
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
-    "count": 11,
+    "count": 16,
+    "uniques": 5
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
+    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
+    "count": 9,
     "uniques": 3
   },
   {
@@ -30,14 +36,14 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 5,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/blob/master/docs/DEVELOPING.md",
     "title": "golang-health-checker/docs/DEVELOPING.md at master · gritzkoo/golang-health-c...",
+    "count": 4,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/master/pkg",
+    "title": "golang-health-checker/pkg at master · gritzkoo/golang-health-checker · GitHub",
     "count": 4,
     "uniques": 2
   },
@@ -48,14 +54,8 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/Makefile",
-    "title": "golang-health-checker/Makefile at master · gritzkoo/golang-health-checker · G...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker_test.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker_test.go at master · grit...",
+    "path": "/gritzkoo/golang-health-checker/blob/master/main.go",
+    "title": "golang-health-checker/main.go at master · gritzkoo/golang-health-checker",
     "count": 2,
     "uniques": 1
   }
