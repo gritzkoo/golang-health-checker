@@ -2,55 +2,13 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 30,
-    "uniques": 18
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "Workflow runs · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/go.mod",
-    "title": "golang-health-checker/go.mod at master · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 2,
-    "uniques": 1
+    "count": 23,
+    "uniques": 17
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/main.go",
     "title": "golang-health-checker/main.go at v1.7.2 · gritzkoo/golang-health-checker",
     "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
-    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/workflows/traffic2badge.yaml",
-    "title": "traffic2badge · Workflow runs · gritzkoo/golang-health-checker",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pull/20",
-    "title": "chore: update package dependencies by gritzkoo · Pull Request #20 · gritzkoo/...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/releases/tag/v1.7.2",
-    "title": "Release v1.7.2 · gritzkoo/golang-health-checker",
-    "count": 1,
     "uniques": 1
   }
 ]
