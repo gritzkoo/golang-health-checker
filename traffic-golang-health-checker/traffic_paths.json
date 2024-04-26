@@ -2,25 +2,25 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 29,
+    "count": 31,
     "uniques": 27
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
     "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 25,
+    "count": 19,
     "uniques": 4
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/main.go",
-    "title": "golang-health-checker/main.go at master · gritzkoo/golang-health-checker · Gi...",
-    "count": 11,
-    "uniques": 3
+    "title": "golang-health-checker/main.go at master · gritzkoo/golang-health-checker",
+    "count": 9,
+    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
     "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
-    "count": 8,
+    "count": 6,
     "uniques": 3
   },
   {
@@ -36,14 +36,20 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/_config.yml",
-    "title": "golang-health-checker/_config.yml at master · gritzkoo/golang-health-checker ...",
-    "count": 2,
+    "path": "/gritzkoo/golang-health-checker/security",
+    "title": "Security Overview · gritzkoo/golang-health-checker",
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/tree/master",
-    "title": "GitHub - gritzkoo/golang-health-checker: A simple package to allow you to tra...",
+    "path": "/gritzkoo/golang-health-checker/security/dependabot",
+    "title": "Dependabot alerts · gritzkoo/golang-health-checker",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/security/dependabot/13",
+    "title": "Golang protojson.Unmarshal function infinite loop when unmarshaling certain f...",
     "count": 1,
     "uniques": 1
   }
