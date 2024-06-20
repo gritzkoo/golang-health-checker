@@ -2,20 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 18,
-    "uniques": 14
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/main.go",
-    "title": "golang-health-checker/main.go at v1.7.2 · gritzkoo/golang-health-checker · Gi...",
-    "count": 18,
-    "uniques": 3
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at v1.7.2 · gritzkoo/...",
-    "count": 16,
-    "uniques": 1
+    "count": 19,
+    "uniques": 15
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
@@ -24,9 +12,15 @@
     "uniques": 5
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/structs.go",
-    "title": "golang-health-checker/pkg/healthcheck/structs.go at v1.7.2 · gritzkoo/golang-...",
+    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/main.go",
+    "title": "golang-health-checker/main.go at v1.7.2 · gritzkoo/golang-health-checker · Gi...",
     "count": 14,
+    "uniques": 3
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/health_checker.go",
+    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at v1.7.2 · gritzkoo/...",
+    "count": 12,
     "uniques": 1
   },
   {
@@ -36,9 +30,9 @@
     "uniques": 5
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/.vscode/launch.json",
-    "title": "golang-health-checker/.vscode/launch.json at v1.7.2 · gritzkoo/golang-health-...",
-    "count": 8,
+    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/pkg/healthcheck/structs.go at v1.7.2 · gritzkoo/golang-...",
+    "count": 10,
     "uniques": 1
   },
   {
@@ -48,15 +42,21 @@
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/tree/v1.7.2/.github",
-    "title": "golang-health-checker/.github at v1.7.2 · gritzkoo/golang-health-checker · Gi...",
-    "count": 6,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
     "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
     "count": 4,
     "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/v1.7.2/.github",
+    "title": "golang-health-checker/.github at v1.7.2 · gritzkoo/golang-health-checker · Gi...",
+    "count": 4,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/_config.yml",
+    "title": "golang-health-checker/_config.yml at master · gritzkoo/golang-health-checker ...",
+    "count": 3,
+    "uniques": 1
   }
 ]
