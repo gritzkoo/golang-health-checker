@@ -6,12 +6,12 @@
   },
   {
     "referrer": "github.com",
-    "count": 20,
-    "uniques": 5
+    "count": 31,
+    "uniques": 6
   },
   {
     "referrer": "pkg.go.dev",
-    "count": 7,
+    "count": 8,
     "uniques": 2
   }
 ]
