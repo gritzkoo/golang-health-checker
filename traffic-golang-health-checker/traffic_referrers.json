@@ -1,8 +1,8 @@
 [
   {
     "referrer": "Google",
-    "count": 29,
-    "uniques": 14
+    "count": 23,
+    "uniques": 10
   },
   {
     "referrer": "pkg.go.dev",
@@ -10,13 +10,13 @@
     "uniques": 2
   },
   {
-    "referrer": "page.itslearning.com",
+    "referrer": "github.com",
     "count": 2,
-    "uniques": 1
+    "uniques": 2
   },
   {
-    "referrer": "github.com",
-    "count": 1,
+    "referrer": "page.itslearning.com",
+    "count": 2,
     "uniques": 1
   },
   {
