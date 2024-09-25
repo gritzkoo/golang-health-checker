@@ -2,18 +2,12 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 17,
+    "count": 15,
     "uniques": 12
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 6,
-    "uniques": 2
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
-    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
+    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/health_checker.go",
+    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at v1.7.2 · gritzkoo/...",
     "count": 4,
     "uniques": 1
   },
@@ -36,12 +30,6 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at v1.7.2 · gritzkoo/...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/actions/runs/10542754404",
     "title": "traffic2badge · gritzkoo/golang-health-checker@396bb18 · GitHub",
     "count": 1,
@@ -56,6 +44,18 @@
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/10569582965",
     "title": "traffic2badge · gritzkoo/golang-health-checker@396bb18 · GitHub",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/go.sum",
+    "title": "golang-health-checker/go.sum at master · gritzkoo/golang-health-checker · Git...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
+    "title": "golang-health-checker/README.md at master · gritzkoo/golang-health-checker · ...",
     "count": 1,
     "uniques": 1
   }
