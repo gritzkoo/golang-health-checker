@@ -9,11 +9,11 @@ jobs:
       - name: setup golang
         uses: actions/setup-go@v1
         with:
-          go-version: "1.20"
+          go-version: "1.23"
       - name: build package
         env:
           CGO_ENABLED: 0
           GOOS: linux
         run: |
           go mod tidy
-          go build -a -installsuffix cgo -o entrypoint
+          go build -a -installsuffix cgo -o entrypoint pkg/**/*.go

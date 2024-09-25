@@ -3,3 +3,5 @@ profile.cov
 ./healthchecker
 .vscode
 main.go
+*.out
+*.log

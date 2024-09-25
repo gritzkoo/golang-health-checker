@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         redis-version: [6]
-        go: ["1.20"]
+        go: ["1.23"]
     steps:
       - uses: actions/checkout@v2
       - name: Sets up a Memcached server
@@ -15,7 +15,7 @@ jobs:
         uses: supercharge/redis-github-action@1.1.0
         with:
           redis-version: ${{ matrix.redis-version }}
-      - uses: actions/setup-go@v1
+      - uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
       - name: install deps

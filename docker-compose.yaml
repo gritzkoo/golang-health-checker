@@ -1,10 +1,8 @@
-version: "3.7"
-
 services:
   test:
     &default
     container_name: golang_app
-    image: golang:1.22-alpine
+    image: golang:1.23-alpine
     working_dir: /app
     command: sh -c "go test -v ./..."
     environment:
@@ -28,18 +26,14 @@ services:
     command: go run main.go
 
   redis:
-    image: redis
+    image: redis:latest
     ports:
       - 6379:6379
 
   memcache:
-    image: memcached:1.4.21
+    image: memcached:latest
     ports:
       - 11211:11211
-
-networks:
-  default:
-    name: gritzkoo-golang-health-checker
 
 volumes:
   godir: {}
