@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         redis-version: [6]
-        go: ["1.22"]
+        go: ["1.23"]
     steps:
       - uses: actions/checkout@v2
       - name: Sets up a Memcached server

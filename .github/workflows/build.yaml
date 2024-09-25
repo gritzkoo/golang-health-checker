@@ -9,7 +9,7 @@ jobs:
       - name: setup golang
         uses: actions/setup-go@v1
         with:
-          go-version: "1.22"
+          go-version: "1.23"
       - name: build package
         env:
           CGO_ENABLED: 0
