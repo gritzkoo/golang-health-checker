@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 12,
-    "uniques": 8
+    "count": 13,
+    "uniques": 9
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/health_checker.go",
@@ -14,8 +14,8 @@
   {
     "path": "/gritzkoo/golang-health-checker/pulls",
     "title": "Pull requests · gritzkoo/golang-health-checker",
-    "count": 4,
-    "uniques": 1
+    "count": 6,
+    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/pull/21",
@@ -26,6 +26,12 @@
   {
     "path": "/gritzkoo/golang-health-checker/actions",
     "title": "Workflow runs · gritzkoo/golang-health-checker",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
+    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
     "count": 2,
     "uniques": 1
   },
@@ -49,12 +55,6 @@
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/11032118234",
-    "title": ":zap: · gritzkoo/golang-health-checker@e387054",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/11032118234/job/30640299230",
     "title": ":zap: · gritzkoo/golang-health-checker@e387054",
     "count": 1,
     "uniques": 1
