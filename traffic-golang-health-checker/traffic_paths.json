@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 13,
-    "uniques": 9
+    "count": 17,
+    "uniques": 10
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/health_checker.go",
@@ -14,7 +14,19 @@
   {
     "path": "/gritzkoo/golang-health-checker/pulls",
     "title": "Pull requests · gritzkoo/golang-health-checker",
-    "count": 6,
+    "count": 7,
+    "uniques": 3
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/releases",
+    "title": "Releases · gritzkoo/golang-health-checker",
+    "count": 3,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
+    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
+    "count": 3,
     "uniques": 2
   },
   {
@@ -24,38 +36,26 @@
     "uniques": 1
   },
   {
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/actions",
     "title": "Workflow runs · gritzkoo/golang-health-checker",
     "count": 2,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
-    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
+    "path": "/gritzkoo/golang-health-checker/issues",
+    "title": "Issues · gritzkoo/golang-health-checker",
     "count": 2,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/11032007251",
     "title": "upgrade test context · gritzkoo/golang-health-checker@d30d29b",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/11032007251/job/30639953668",
-    "title": "upgrade test context · gritzkoo/golang-health-checker@d30d29b",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/11032007251/job/30640159350",
-    "title": "upgrade test context · gritzkoo/golang-health-checker@d30d29b",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/11032118234",
-    "title": ":zap: · gritzkoo/golang-health-checker@e387054",
     "count": 1,
     "uniques": 1
   }
