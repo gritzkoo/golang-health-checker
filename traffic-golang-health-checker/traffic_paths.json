@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 24,
-    "uniques": 17
+    "count": 28,
+    "uniques": 20
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
@@ -36,8 +36,8 @@
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.2/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at v1.7.2 · gritzkoo/...",
+    "path": "/gritzkoo/golang-health-checker/actions/workflows/traffic2badge.yaml",
+    "title": "traffic2badge · Workflow runs · gritzkoo/golang-health-checker",
     "count": 2,
     "uniques": 1
   },
@@ -54,8 +54,8 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/_config.yml",
-    "title": "golang-health-checker/_config.yml at master · gritzkoo/golang-health-checker",
+    "path": "/gritzkoo/golang-health-checker/actions/runs/11319131515",
+    "title": "traffic2badge · gritzkoo/golang-health-checker@7f5e3e4",
     "count": 1,
     "uniques": 1
   }
