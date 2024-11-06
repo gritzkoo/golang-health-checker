@@ -16,4 +16,4 @@ jobs:
           GOOS: linux
         run: |
           go mod tidy
-          go build -a -installsuffix cgo -o entrypoint pkg/**/*.go
+          go build -race -a -installsuffix cgo -o entrypoint pkg/**/*.go

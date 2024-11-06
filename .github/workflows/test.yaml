@@ -21,7 +21,7 @@ jobs:
       - name: install deps
         run: go mod tidy
       - name: run test
-        run: go test -v -coverprofile=profile.cov ./...
+        run: go test -race -v -coverprofile=profile.cov ./...
 
       - name: Send coverage to coverall.io
         uses: shogo82148/actions-goveralls@v1
