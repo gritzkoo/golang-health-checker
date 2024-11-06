@@ -50,8 +50,8 @@ func HealthCheckerDetailed(config ApplicationConfig) ApplicationHealthDetailed {
 	go func() {
 		wg.Wait()
 		close(checklist)
-		result.Duration = time.Since(start).Seconds()
 	}()
+	result.Duration = time.Since(start).Seconds()
 	for chk := range checklist {
 		result.Integrations = append(result.Integrations, chk)
 	}
