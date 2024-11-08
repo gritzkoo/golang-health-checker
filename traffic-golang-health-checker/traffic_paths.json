@@ -2,7 +2,7 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 23,
+    "count": 25,
     "uniques": 18
   },
   {
@@ -12,9 +12,51 @@
     "uniques": 3
   },
   {
+    "path": "/gritzkoo/golang-health-checker/pull/22",
+    "title": "[v1.7.4] - fix: solving issue with open go routines by gritzkoo · Pull Reques...",
+    "count": 4,
+    "uniques": 1
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
     "count": 3,
     "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/workflows/build.yaml",
+    "title": "build · Workflow runs · gritzkoo/golang-health-checker",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/workflows/test.yaml",
+    "title": "test · Workflow runs · gritzkoo/golang-health-checker",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pulls",
+    "title": "Pull requests · gritzkoo/golang-health-checker",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions",
+    "title": "Workflow runs · gritzkoo/golang-health-checker",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/runs/11711993859/job/32621723531",
+    "title": "fix: solving issue with open go routines · gritzkoo/golang-health-checker@09e...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/runs/11712038506",
+    "title": "fix: build pipeline · gritzkoo/golang-health-checker@0a650a0",
+    "count": 1,
+    "uniques": 1
   }
 ]
