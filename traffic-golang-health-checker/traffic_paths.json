@@ -14,8 +14,8 @@
   {
     "path": "/gritzkoo/golang-health-checker/pull/22",
     "title": "[v1.7.4] - fix: solving issue with open go routines by gritzkoo · Pull Reques...",
-    "count": 4,
-    "uniques": 1
+    "count": 5,
+    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
