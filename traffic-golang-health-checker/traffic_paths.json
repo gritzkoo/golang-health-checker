@@ -3,7 +3,13 @@
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
     "count": 25,
-    "uniques": 19
+    "uniques": 18
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions",
+    "title": "Workflow runs · gritzkoo/golang-health-checker · GitHub",
+    "count": 8,
+    "uniques": 8
   },
   {
     "path": "/gritzkoo/golang-health-checker/pull/22",
@@ -18,8 +24,8 @@
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "Workflow runs · gritzkoo/golang-health-checker · GitHub",
+    "path": "/gritzkoo/golang-health-checker/actions/runs/11712038517",
+    "title": "fix: build pipeline · gritzkoo/golang-health-checker@0a650a0 · GitHub",
     "count": 2,
     "uniques": 2
   },
@@ -48,14 +54,8 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/11711993859/job/32621723531",
-    "title": "fix: solving issue with open go routines · gritzkoo/golang-health-checker@09e...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/11712038506",
-    "title": "fix: build pipeline · gritzkoo/golang-health-checker@0a650a0",
+    "path": "/gritzkoo/golang-health-checker/actions/runs/11509793242",
+    "title": "traffic2badge · gritzkoo/golang-health-checker@7f5e3e4 · GitHub",
     "count": 1,
     "uniques": 1
   }
