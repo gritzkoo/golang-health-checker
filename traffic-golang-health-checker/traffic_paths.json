@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 28,
-    "uniques": 22
+    "count": 32,
+    "uniques": 24
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions",
@@ -12,26 +12,26 @@
     "uniques": 8
   },
   {
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
+    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
+    "count": 5,
+    "uniques": 4
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/pull/22",
     "title": "[v1.7.4] - fix: solving issue with open go routines by gritzkoo · Pull Reques...",
     "count": 5,
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 4,
+    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
+    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
+    "count": 3,
     "uniques": 3
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/11712038517",
     "title": "fix: build pipeline · gritzkoo/golang-health-checker@0a650a0 · GitHub",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
-    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
     "count": 2,
     "uniques": 2
   },
