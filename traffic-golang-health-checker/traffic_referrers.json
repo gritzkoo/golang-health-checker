@@ -1,8 +1,8 @@
 [
   {
     "referrer": "Google",
-    "count": 24,
-    "uniques": 15
+    "count": 23,
+    "uniques": 14
   },
   {
     "referrer": "pkg.go.dev",
@@ -10,12 +10,12 @@
     "uniques": 3
   },
   {
-    "referrer": "yandex.ru",
-    "count": 3,
+    "referrer": "github.com",
+    "count": 2,
     "uniques": 2
   },
   {
-    "referrer": "github.com",
+    "referrer": "yandex.ru",
     "count": 2,
     "uniques": 2
   }
