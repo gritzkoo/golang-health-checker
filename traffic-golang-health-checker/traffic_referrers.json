@@ -6,8 +6,8 @@
   },
   {
     "referrer": "pkg.go.dev",
-    "count": 9,
-    "uniques": 3
+    "count": 8,
+    "uniques": 2
   },
   {
     "referrer": "github.com",
@@ -16,7 +16,7 @@
   },
   {
     "referrer": "yandex.ru",
-    "count": 2,
-    "uniques": 2
+    "count": 1,
+    "uniques": 1
   }
 ]
