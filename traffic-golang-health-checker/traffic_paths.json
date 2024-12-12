@@ -2,50 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 9,
-    "uniques": 7
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
-    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
-    "count": 5,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/tree/master",
-    "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 3,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
-    "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "Issues · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "Pull requests · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/activity",
-    "title": "Activity · gritzkoo/golang-health-checker",
-    "count": 1,
-    "uniques": 1
+    "count": 6,
+    "uniques": 6
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/.github/workflows/test.yaml",
@@ -54,8 +12,20 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/Makefile",
-    "title": "golang-health-checker/Makefile at master · gritzkoo/golang-health-checker",
+    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
+    "title": "golang-health-checker/README.md at master · gritzkoo/golang-health-checker",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/master/.github",
+    "title": "golang-health-checker/.github at master · gritzkoo/golang-health-checker",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/master/.github/workflows",
+    "title": "golang-health-checker/.github/workflows at master · gritzkoo/golang-health-ch...",
     "count": 1,
     "uniques": 1
   }
