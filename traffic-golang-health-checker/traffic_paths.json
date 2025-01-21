@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 18,
-    "uniques": 15
+    "count": 16,
+    "uniques": 13
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master",
@@ -21,12 +21,6 @@
     "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
     "title": "golang-health-checker/README.md at master · gritzkoo/golang-health-checker · ...",
     "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/workflows/build.yaml",
-    "title": "build · Workflow runs · gritzkoo/golang-health-checker · GitHub",
-    "count": 1,
     "uniques": 1
   },
   {
