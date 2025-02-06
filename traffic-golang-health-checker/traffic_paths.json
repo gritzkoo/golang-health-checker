@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 18,
-    "uniques": 15
+    "count": 15,
+    "uniques": 13
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
@@ -30,6 +30,12 @@
     "uniques": 1
   },
   {
+    "path": "/gritzkoo/golang-health-checker/blob/master/docker-compose.yaml",
+    "title": "golang-health-checker/docker-compose.yaml at master · gritzkoo/golang-health-...",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker_test.go",
     "title": "golang-health-checker/pkg/healthcheck/health_checker_test.go at master · grit...",
     "count": 2,
@@ -42,20 +48,14 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/docker-compose.yaml",
-    "title": "golang-health-checker/docker-compose.yaml at master · gritzkoo/golang-health-...",
+    "path": "/gritzkoo/golang-health-checker/actions/workflows/build.yaml",
+    "title": "build · Workflow runs · gritzkoo/golang-health-checker · GitHub",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/docs/DEVELOPING.md",
     "title": "golang-health-checker/docs/DEVELOPING.md at master · gritzkoo/golang-health-c...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/Makefile",
-    "title": "golang-health-checker/Makefile at master · gritzkoo/golang-health-checker",
     "count": 1,
     "uniques": 1
   }
