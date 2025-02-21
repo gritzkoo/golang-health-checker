@@ -1,16 +1,21 @@
 [
   {
     "referrer": "Google",
-    "count": 28,
+    "count": 24,
     "uniques": 13
   },
   {
     "referrer": "pkg.go.dev",
-    "count": 7,
+    "count": 4,
     "uniques": 3
   },
   {
     "referrer": "ya.ru",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "referrer": "yandex.ru",
     "count": 1,
     "uniques": 1
   }
