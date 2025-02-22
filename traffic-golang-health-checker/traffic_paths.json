@@ -2,19 +2,25 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 22,
-    "uniques": 14
+    "count": 23,
+    "uniques": 15
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
     "count": 8,
-    "uniques": 2
+    "uniques": 3
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
     "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 5,
+    "count": 7,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
+    "count": 7,
     "uniques": 1
   },
   {
@@ -50,12 +56,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/forks",
     "title": "Forks · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pull/23",
-    "title": "chore(deps): bump golang.org/x/net from 0.29.0 to 0.33.0 by dependabot[bot] ·...",
     "count": 2,
     "uniques": 1
   }
