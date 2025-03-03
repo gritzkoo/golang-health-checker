@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 22,
-    "uniques": 17
+    "count": 15,
+    "uniques": 15
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
@@ -24,39 +24,21 @@
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "Pull requests · gritzkoo/golang-health-checker",
-    "count": 4,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/blob/e611e14d4192446b23931ef3135d01f0e12d13ed/pkg/healthcheck/health_checker.go",
     "title": "golang-health-checker/pkg/healthcheck/health_checker.go at e611e14d4192446b23...",
     "count": 3,
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/blob/master/.github/workflows/test.yaml",
-    "title": "golang-health-checker/.github/workflows/test.yaml at master · gritzkoo/golang...",
-    "count": 3,
-    "uniques": 2
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pull/24",
-    "title": "chore: update dependencies by gritzkoo · Pull Request #24 · gritzkoo/golang-h...",
-    "count": 3,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pull/25",
-    "title": "chore: update dependencies by gritzkoo · Pull Request #25 · gritzkoo/golang-h...",
-    "count": 3,
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker_test.go",
+    "title": "golang-health-checker/pkg/healthcheck/health_checker_test.go at master · grit...",
+    "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/pull/26",
     "title": "foce-update by gritzkoo · Pull Request #26 · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 2
+    "count": 1,
+    "uniques": 1
   }
 ]
