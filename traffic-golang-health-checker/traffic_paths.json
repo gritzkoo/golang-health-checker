@@ -2,20 +2,20 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 14,
-    "uniques": 14
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
-    "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
-    "count": 12,
-    "uniques": 1
+    "count": 16,
+    "uniques": 16
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
     "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 7,
-    "uniques": 1
+    "count": 6,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
+    "title": "golang-health-checker/pkg/healthcheck/structs.go at master · gritzkoo/golang-...",
+    "count": 6,
+    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/e611e14d4192446b23931ef3135d01f0e12d13ed/pkg/healthcheck/health_checker.go",
@@ -26,12 +26,30 @@
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker_test.go",
     "title": "golang-health-checker/pkg/healthcheck/health_checker_test.go at master · grit...",
-    "count": 1,
-    "uniques": 1
+    "count": 2,
+    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/pull/26",
     "title": "foce-update by gritzkoo · Pull Request #26 · gritzkoo/golang-health-checker",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/docker-compose.yaml",
+    "title": "golang-health-checker/docker-compose.yaml at master · gritzkoo/golang-health-...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/releases",
+    "title": "Releases · gritzkoo/golang-health-checker",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/releases/tag/v1.7.7",
+    "title": "Release v1.7.7 · gritzkoo/golang-health-checker",
     "count": 1,
     "uniques": 1
   },
