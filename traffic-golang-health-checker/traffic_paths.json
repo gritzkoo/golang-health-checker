@@ -2,8 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 38,
-    "uniques": 30
+    "count": 36,
+    "uniques": 28
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
@@ -48,14 +48,14 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "GitHub · Where software is built",
+    "path": "/gritzkoo/golang-health-checker/pull/27",
+    "title": "chore(deps): bump golang.org/x/net from 0.35.0 to 0.36.0 by dependabot[bot] ·...",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/27",
-    "title": "chore(deps): bump golang.org/x/net from 0.35.0 to 0.36.0 by dependabot[bot] ·...",
+    "path": "/gritzkoo/golang-health-checker/pulls",
+    "title": "Pull requests · gritzkoo/golang-health-checker",
     "count": 1,
     "uniques": 1
   }
