@@ -1,8 +1,8 @@
 [
   {
     "referrer": "Google",
-    "count": 37,
-    "uniques": 15
+    "count": 35,
+    "uniques": 13
   },
   {
     "referrer": "arabam.atlassian.net",
@@ -13,11 +13,6 @@
     "referrer": "pkg.go.dev",
     "count": 3,
     "uniques": 2
-  },
-  {
-    "referrer": "ya.ru",
-    "count": 1,
-    "uniques": 1
   },
   {
     "referrer": "yandex.ru",
