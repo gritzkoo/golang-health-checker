@@ -1,8 +1,8 @@
 [
   {
     "referrer": "Google",
-    "count": 32,
-    "uniques": 10
+    "count": 18,
+    "uniques": 9
   },
   {
     "referrer": "pkg.go.dev",
@@ -11,7 +11,7 @@
   },
   {
     "referrer": "arabam.atlassian.net",
-    "count": 2,
+    "count": 1,
     "uniques": 1
   }
 ]
