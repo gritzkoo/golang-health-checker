@@ -5,18 +5,18 @@
     "uniques": 8
   },
   {
+    "referrer": "github.com",
+    "count": 9,
+    "uniques": 1
+  },
+  {
     "referrer": "pkg.go.dev",
     "count": 3,
     "uniques": 2
   },
   {
-    "referrer": "github.com",
-    "count": 3,
-    "uniques": 1
-  },
-  {
     "referrer": "arabam.atlassian.net",
-    "count": 1,
+    "count": 2,
     "uniques": 1
   }
 ]
