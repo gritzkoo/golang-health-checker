@@ -1,16 +1,16 @@
 [
   {
     "referrer": "Google",
-    "count": 8,
-    "uniques": 7
-  },
-  {
-    "referrer": "pkg.go.dev",
-    "count": 2,
-    "uniques": 2
+    "count": 7,
+    "uniques": 6
   },
   {
     "referrer": "chatgpt.com",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "referrer": "pkg.go.dev",
     "count": 1,
     "uniques": 1
   }
