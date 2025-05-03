@@ -1,8 +1,8 @@
 [
   {
     "referrer": "Google",
-    "count": 5,
-    "uniques": 5
+    "count": 4,
+    "uniques": 4
   },
   {
     "referrer": "ya.ru",
@@ -16,6 +16,11 @@
   },
   {
     "referrer": "pkg.go.dev",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "referrer": "page.itslearning.com",
     "count": 1,
     "uniques": 1
   }
