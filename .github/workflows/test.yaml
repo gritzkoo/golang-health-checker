@@ -52,8 +52,15 @@ jobs:
         id: release_package
         with:
           bump_version_scheme: patch
-      - name: update go.pkg.dev with new version
+      - name: setup go server
+        uses: actions/setup-go@v1
+        with:
+          go-version: "1.24"
+      - name: update go.pkg.dev
         env:
+          GOPROXY: https://proxy.golang.org
+          GO111MODULE: "on"
           VERSION: ${{steps.release_package.outputs.version}}
-        run: curl https://sum.golang.org/lookup/github.com/${GITHUB_REPOSITORY}@${VERSION}
-
+        run: |
+          go mod init pipeline
+          go get github.com/${GITHUB_REPOSITORY}@${VERSION}
