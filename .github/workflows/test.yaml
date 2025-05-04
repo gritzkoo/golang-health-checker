@@ -6,9 +6,9 @@ jobs:
     strategy:
       matrix:
         redis-version: [6]
-        go: ["1.23"]
+        go: ["1.24"]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Sets up a Memcached server
         uses: niden/actions-memcached@v7
       - name: Start Redis
