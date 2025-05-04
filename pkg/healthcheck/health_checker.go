@@ -192,7 +192,7 @@ func defaultAction(config IntegrationConfig, result *ApplicationHealthDetailed, 
 		Status:       false,
 		ResponseTime: 0,
 		URL:          config.Host,
-		Error:        fmt.Sprintf("unsuported type of:" + config.Type),
+		Error:        fmt.Sprintf("unsuported type of: %v", config.Type),
 	}
 }
 
