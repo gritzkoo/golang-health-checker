@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4.3.4
+        uses: actions/checkout@v4
 
       - name: Get Commit Message
         id: message
-        uses: actions/github-script@v3.1.0
+        uses: actions/github-script@v7
         env:
           FULL_COMMIT_MESSAGE: '${{ github.event.head_commit.message }}'
         with:
@@ -29,9 +29,9 @@ jobs:
             var time = new Date(Date.now()).toISOString();
             core.info(time);
             return `Get traffic data at ${time}`;
-      - name: Get current year
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y')"
+      # - name: Get current year
+      #   id: date
+      #   run: echo "::set-output name=date::$(date +'%Y')"
       - name: Set Traffic
         id: traffic
         uses: yi-Xu-0100/traffic-to-badge@v1.4.0
@@ -51,7 +51,7 @@ jobs:
           #year: ${{ steps.date.outputs.date }}
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3.7.3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ steps.traffic.outputs.traffic_branch }}
