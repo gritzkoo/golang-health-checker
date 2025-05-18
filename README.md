@@ -1,6 +1,6 @@
 # golang-health-checker
 
-![test](https://github.com/gritzkoo/golang-health-checker/workflows/test/badge.svg?branch=master)
+[![test](https://github.com/gritzkoo/golang-health-checker/actions/workflows/test.yaml/badge.svg)](https://github.com/gritzkoo/golang-health-checker/actions/workflows/test.yaml)
 [![build](https://github.com/gritzkoo/golang-health-checker/actions/workflows/build.yaml/badge.svg)](https://github.com/gritzkoo/golang-health-checker/actions/workflows/build.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/gritzkoo/golang-health-checker/badge.svg?branch=master)](https://coveralls.io/github/gritzkoo/golang-health-checker?branch=master)
 ![views](https://raw.githubusercontent.com/gritzkoo/golang-health-checker/traffic/traffic-golang-health-checker/views.svg)
