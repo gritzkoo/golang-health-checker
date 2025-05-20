@@ -2,8 +2,20 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 18,
-    "uniques": 16
+    "count": 26,
+    "uniques": 18
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/workflows/traffic2badge.yaml",
+    "title": "traffic2badge · Workflow runs · gritzkoo/golang-health-checker",
+    "count": 6,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions",
+    "title": "Workflow runs · gritzkoo/golang-health-checker",
+    "count": 4,
+    "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
@@ -18,14 +30,32 @@
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/29",
-    "title": "[release v1.7.10] - update pipeline by gritzkoo · Pull Request #29 · gritzkoo...",
+    "path": "/gritzkoo/golang-health-checker/pull/30",
+    "title": "chore: update traffic-to-badge workflow by gritzkoo · Pull Request #30 · grit...",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/runs/15097159401",
+    "title": "traffic2badge · gritzkoo/golang-health-checker@5c8ec5a",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/29/files",
-    "title": "[release v1.7.10] - update pipeline by gritzkoo · Pull Request #29 · gritzkoo...",
+    "path": "/gritzkoo/golang-health-checker/actions/runs/15097202468",
+    "title": "traffic2badge · gritzkoo/golang-health-checker@7b1f9cc",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/runs/15097202468/job/42433456667",
+    "title": "traffic2badge · gritzkoo/golang-health-checker@7b1f9cc",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/workflows/test.yaml",
+    "title": "test · Workflow runs · gritzkoo/golang-health-checker",
     "count": 1,
     "uniques": 1
   }
