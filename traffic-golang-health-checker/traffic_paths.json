@@ -2,60 +2,12 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "gritzkoo/golang-health-checker: A simple package to allow you to track your a...",
-    "count": 12,
-    "uniques": 9
+    "count": 8,
+    "uniques": 7
   },
   {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
-    "title": "golang-health-checker/README.md at master · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/tree/master/.github",
-    "title": "golang-health-checker/.github at master · gritzkoo/golang-health-checker",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/workflows/build.yaml",
-    "title": "build · Workflow runs · gritzkoo/golang-health-checker",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/workflows/test.yaml",
-    "title": "test · Workflow runs · gritzkoo/golang-health-checker",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/.github/workflows/build.yaml",
-    "title": "golang-health-checker/.github/workflows/build.yaml at master · gritzkoo/golan...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/.github/workflows/test.yaml",
-    "title": "golang-health-checker/.github/workflows/test.yaml at master · gritzkoo/golang...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/edit/master/README.md",
-    "title": "Editing golang-health-checker/README.md at master · gritzkoo/golang-health-ch...",
     "count": 1,
     "uniques": 1
   }
