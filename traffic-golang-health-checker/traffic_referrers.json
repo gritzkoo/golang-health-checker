@@ -8,5 +8,10 @@
     "referrer": "yandex.ru",
     "count": 3,
     "uniques": 2
+  },
+  {
+    "referrer": "pkg.go.dev",
+    "count": 1,
+    "uniques": 1
   }
 ]
