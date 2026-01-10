@@ -42,6 +42,12 @@
     "uniques": 1
   },
   {
+    "path": "/gritzkoo/golang-health-checker/blob/master/.github/ISSUE_TEMPLATE/bug_report.md",
+    "title": "golang-health-checker/.github/ISSUE_TEMPLATE/bug_report.md at master · gritzk...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/blob/master/go.mod",
     "title": "golang-health-checker/go.mod at master · gritzkoo/golang-health-checker",
     "count": 1,
@@ -50,12 +56,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/go.sum",
     "title": "golang-health-checker/go.sum at master · gritzkoo/golang-health-checker",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/v1.7.0/Makefile",
-    "title": "golang-health-checker/Makefile at v1.7.0 · gritzkoo/golang-health-checker",
     "count": 1,
     "uniques": 1
   }
