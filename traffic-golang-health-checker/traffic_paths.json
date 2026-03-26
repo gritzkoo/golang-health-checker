@@ -18,6 +18,12 @@
     "uniques": 2
   },
   {
+    "path": "/gritzkoo/golang-health-checker/issues",
+    "title": "GitHub · Where software is built",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/tree/master/pkg/healthcheck",
     "title": "GitHub - gritzkoo/golang-health-checker: A simple package to allow you to tra...",
     "count": 2,
@@ -30,8 +36,8 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "Issues · gritzkoo/golang-health-checker · GitHub",
+    "path": "/gritzkoo/golang-health-checker/pulls",
+    "title": "Pull requests · gritzkoo/golang-health-checker · GitHub",
     "count": 1,
     "uniques": 1
   }
