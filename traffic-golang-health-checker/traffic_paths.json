@@ -8,14 +8,14 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "GitHub - gritzkoo/golang-health-checker: A simple package to allow you to tra...",
-    "count": 7,
-    "uniques": 5
+    "count": 5,
+    "uniques": 4
   },
   {
     "path": "/gritzkoo/golang-health-checker/issues",
     "title": "GitHub · Where software is built",
-    "count": 4,
-    "uniques": 4
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions",
@@ -36,12 +36,6 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/branches",
-    "title": "Branches · gritzkoo/golang-health-checker",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/forks",
     "title": "Forks · gritzkoo/golang-health-checker · GitHub",
     "count": 1,
@@ -56,6 +50,12 @@
   {
     "path": "/gritzkoo/golang-health-checker/milestones",
     "title": "GitHub · Where software is built",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pulse",
+    "title": "Pulse · gritzkoo/golang-health-checker · GitHub",
     "count": 1,
     "uniques": 1
   }
