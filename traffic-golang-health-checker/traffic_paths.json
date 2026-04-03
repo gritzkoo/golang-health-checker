@@ -1,61 +1,61 @@
 [
   {
     "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "Pull requests · gritzkoo/golang-health-checker · GitHub",
+    "title": "/pulls",
     "count": 19,
     "uniques": 19
   },
   {
     "path": "/gritzkoo/golang-health-checker",
-    "title": "GitHub - gritzkoo/golang-health-checker: A simple package to allow you to tra...",
-    "count": 5,
-    "uniques": 4
+    "title": "Overview",
+    "count": 3,
+    "uniques": 3
   },
   {
     "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "GitHub · Where software is built",
+    "title": "/issues",
     "count": 3,
     "uniques": 3
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "Workflow runs · gritzkoo/golang-health-checker · GitHub",
+    "title": "/actions",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
-    "title": "golang-health-checker/pkg/healthcheck/health_checker.go at master · gritzkoo/...",
+    "title": "/blob/master/README.md",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/health_checker.go",
-    "title": "golang-health-checker/pkg/healthcheck at master · gritzkoo/golang-health-chec...",
+    "title": "/blob/master/pkg/healthcheck/health_checker.go",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/forks",
-    "title": "Forks · gritzkoo/golang-health-checker · GitHub",
+    "title": "/forks",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/labels",
-    "title": "GitHub · Where software is built",
+    "title": "/labels",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/milestones",
-    "title": "GitHub · Where software is built",
+    "title": "/milestones",
     "count": 1,
     "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/pulse",
-    "title": "Pulse · gritzkoo/golang-health-checker · GitHub",
+    "title": "/pulse",
     "count": 1,
     "uniques": 1
   }
