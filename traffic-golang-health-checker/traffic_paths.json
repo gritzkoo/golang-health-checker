@@ -2,32 +2,32 @@
   {
     "path": "/gritzkoo/golang-health-checker/pulls",
     "title": "/pulls",
-    "count": 184,
-    "uniques": 183
+    "count": 166,
+    "uniques": 165
   },
   {
     "path": "/gritzkoo/golang-health-checker/issues",
     "title": "/issues",
-    "count": 32,
-    "uniques": 32
+    "count": 30,
+    "uniques": 30
   },
   {
     "path": "/gritzkoo/golang-health-checker/forks",
     "title": "/forks",
-    "count": 14,
-    "uniques": 14
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "/actions",
-    "count": 6,
-    "uniques": 6
+    "count": 13,
+    "uniques": 13
   },
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "Overview",
-    "count": 2,
-    "uniques": 2
+    "count": 6,
+    "uniques": 5
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions",
+    "title": "/actions",
+    "count": 5,
+    "uniques": 5
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/22533078346",
