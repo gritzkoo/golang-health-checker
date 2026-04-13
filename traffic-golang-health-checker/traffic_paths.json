@@ -20,14 +20,20 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "Overview",
-    "count": 12,
-    "uniques": 9
+    "count": 13,
+    "uniques": 10
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions",
     "title": "/actions",
     "count": 5,
     "uniques": 5
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pull/28/files",
+    "title": "/pull/28/files",
+    "count": 2,
+    "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/22533078346",
@@ -50,12 +56,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/22557377857/workflow",
     "title": "/actions/runs/22557377857/workflow",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/22603563904",
-    "title": "/actions/runs/22603563904",
     "count": 1,
     "uniques": 1
   }
