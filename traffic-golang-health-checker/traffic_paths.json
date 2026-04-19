@@ -1,33 +1,9 @@
 [
   {
-    "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "/pulls",
-    "count": 167,
-    "uniques": 166
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "/issues",
-    "count": 31,
-    "uniques": 31
-  },
-  {
     "path": "/gritzkoo/golang-health-checker",
     "title": "Overview",
-    "count": 19,
-    "uniques": 14
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/forks",
-    "title": "/forks",
-    "count": 13,
-    "uniques": 13
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "/actions",
-    "count": 5,
-    "uniques": 5
+    "count": 20,
+    "uniques": 15
   },
   {
     "path": "/gritzkoo/golang-health-checker/pull/28/files",
@@ -36,26 +12,38 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/22533078346",
-    "title": "/actions/runs/22533078346",
+    "path": "/gritzkoo/golang-health-checker/compare",
+    "title": "/compare",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/22533078346/workflow",
-    "title": "/actions/runs/22533078346/workflow",
+    "path": "/gritzkoo/golang-health-checker/issues",
+    "title": "/issues",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/22557377857",
-    "title": "/actions/runs/22557377857",
+    "path": "/gritzkoo/golang-health-checker/pull/28",
+    "title": "/pull/28",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/22557377857/workflow",
-    "title": "/actions/runs/22557377857/workflow",
+    "path": "/gritzkoo/golang-health-checker/pull/5",
+    "title": "/pull/5",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pulls",
+    "title": "/pulls",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/releases",
+    "title": "/releases",
     "count": 1,
     "uniques": 1
   }
