@@ -6,6 +6,12 @@
     "uniques": 15
   },
   {
+    "path": "/gritzkoo/golang-health-checker/issues",
+    "title": "/issues",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/commit/5a44d2c283e8078986d65e43c718872db0afcb6c",
     "title": "/commit/5a44d2c283e8078986d65e43c718872db0afcb6c",
     "count": 2,
@@ -24,8 +30,8 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "/issues",
+    "path": "/gritzkoo/golang-health-checker/milestones",
+    "title": "/milestones",
     "count": 1,
     "uniques": 1
   },
