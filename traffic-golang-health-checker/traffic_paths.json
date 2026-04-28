@@ -2,14 +2,8 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "Overview",
-    "count": 11,
+    "count": 10,
     "uniques": 8
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "/issues",
-    "count": 2,
-    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/commit/396bb18fd12593bed8a48f7439ac23c5f444dd4d",
@@ -24,20 +18,32 @@
     "uniques": 1
   },
   {
+    "path": "/gritzkoo/golang-health-checker/commit/5e7500c24299c4dedad662d2d74c1057b1fec814",
+    "title": "/commit/5e7500c24299c4dedad662d2d74c1057b1fec814",
+    "count": 2,
+    "uniques": 1
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/commit/7e863d1adf640545043e323058128b4695019bea",
     "title": "/commit/7e863d1adf640545043e323058128b4695019bea",
     "count": 2,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/28/files",
-    "title": "/pull/28/files",
-    "count": 2,
+    "path": "/gritzkoo/golang-health-checker/actions",
+    "title": "/actions",
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "/actions",
+    "path": "/gritzkoo/golang-health-checker/actions/runs/24812122272",
+    "title": "/actions/runs/24812122272",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/Makefile",
+    "title": "/blob/master/Makefile",
     "count": 1,
     "uniques": 1
   },
@@ -50,12 +56,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/compare",
     "title": "/compare",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/milestones",
-    "title": "/milestones",
     "count": 1,
     "uniques": 1
   }
