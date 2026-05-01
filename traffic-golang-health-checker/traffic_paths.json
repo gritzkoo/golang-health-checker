@@ -2,8 +2,14 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "Overview",
-    "count": 8,
-    "uniques": 7
+    "count": 6,
+    "uniques": 6
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions",
+    "title": "/actions",
+    "count": 2,
+    "uniques": 1
   },
   {
     "path": "/gritzkoo/golang-health-checker/commit/396bb18fd12593bed8a48f7439ac23c5f444dd4d",
@@ -30,12 +36,6 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "/actions",
-    "count": 1,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/actions/runs/24812122272",
     "title": "/actions/runs/24812122272",
     "count": 1,
@@ -48,14 +48,14 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/commits",
-    "title": "/commits",
+    "path": "/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go",
+    "title": "/blob/master/pkg/healthcheck/structs.go",
     "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/compare",
-    "title": "/compare",
+    "path": "/gritzkoo/golang-health-checker/commits",
+    "title": "/commits",
     "count": 1,
     "uniques": 1
   }
