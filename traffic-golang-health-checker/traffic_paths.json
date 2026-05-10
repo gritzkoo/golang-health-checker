@@ -30,12 +30,6 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/commit/7e863d1adf640545043e323058128b4695019bea",
-    "title": "/commit/7e863d1adf640545043e323058128b4695019bea",
-    "count": 2,
-    "uniques": 1
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/actions/runs/14049087750/workflow",
     "title": "/actions/runs/14049087750/workflow",
     "count": 1,
@@ -56,6 +50,12 @@
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/24812122272",
     "title": "/actions/runs/24812122272",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/Makefile",
+    "title": "/blob/master/Makefile",
     "count": 1,
     "uniques": 1
   }
