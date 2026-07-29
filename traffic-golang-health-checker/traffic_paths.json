@@ -1,5 +1,11 @@
 [
   {
+    "path": "/gritzkoo/golang-health-checker",
+    "title": "Overview",
+    "count": 1,
+    "uniques": 1
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/issues",
     "title": "/issues",
     "count": 1,
