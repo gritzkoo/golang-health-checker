@@ -2,18 +2,18 @@
   {
     "path": "/gritzkoo/golang-health-checker",
     "title": "Overview",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
-    "title": "/blob/master/README.md",
-    "count": 1,
-    "uniques": 1
+    "count": 3,
+    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/pull/22/files",
     "title": "/pull/22/files",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
+    "title": "/blob/master/README.md",
     "count": 1,
     "uniques": 1
   }
