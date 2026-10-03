@@ -10,5 +10,17 @@
     "title": "/pull/22/files",
     "count": 3,
     "uniques": 3
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/v1.0.1/pkg/healthcheck/healthcheck.go",
+    "title": "/blob/v1.0.1/pkg/healthcheck/healthcheck.go",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/tree/v1.0.1/pkg/healthcheck",
+    "title": "/tree/v1.0.1/pkg/healthcheck",
+    "count": 1,
+    "uniques": 1
   }
 ]
