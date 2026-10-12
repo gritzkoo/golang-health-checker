@@ -1,7 +1,9 @@
 package healthcheck
 
-// ApplicationHealthDetailed used to check all application integrations and return status of each of then
-type ApplicationHealthDetailed struct {
+import "context"
+
+// ReadinessResponse used to check all application integrations and return status of each of then
+type ReadinessResponse struct {
 	Name         string        `json:"name,omitempty"`
 	Status       bool          `json:"status"`
 	Version      string        `json:"version,omitempty"`
@@ -10,8 +12,8 @@ type ApplicationHealthDetailed struct {
 	Integrations []Integration `json:"integrations"`
 }
 
-// ApplicationHealthSimple used to simple return a string 'OK'
-type ApplicationHealthSimple struct {
+// LivenessResponse used to simple return a string 'OK'
+type LivenessResponse struct {
 	Status string `json:"status"`
 }
 
@@ -20,55 +22,25 @@ type Integration struct {
 	Name         string  `json:"name"`
 	Kind         string  `json:"kind"`
 	Status       bool    `json:"status"`
+	IsOptional   bool    `json:"is_optional"`
 	ResponseTime float64 `json:"response_time"` //in seconds
-	URL          string  `json:"url"`
+	Url          string  `json:"url,omitempty"`
 	Error        string  `json:"error,omitempty"` // error.Error()
 }
 
-// Auth is a default struct to map user/pass protocol
-type Auth struct {
-	User     string
-	Password string
+// RedinessConfig is a config contract to init health caller
+type RedinessConfig struct {
+	// The name of your application
+	Name string
+	// The version to trace changes
+	Version string
+	// The list of integrations to be tested
+	Integrations []IntegrationItem
 }
 
-// ApplicationConfig is a config contract to init health caller
-type ApplicationConfig struct {
-	Name         string              `json:"name"`
-	Version      string              `json:"version"`
-	Integrations []IntegrationConfig `json:"integrations"`
+// IntegrationItem interface defines the contract of each Integration that will be tested
+// Now you can create your own integration and use as you wish
+type IntegrationItem interface {
+	// Check function execute the integraion validation
+	Check(ctx context.Context) (Integration, error)
 }
-
-// IntegrationConfig used to inform each integration config
-type IntegrationConfig struct {
-	Type    string       `json:"Type"` // must be web | redis | memcache
-	Name    string       `json:"name"`
-	Host    string       `json:"host"` // yes you can concat host:port here
-	Port    string       `json:"port,omitempty"`
-	Headers []HTTPHeader `json:"headers,omitempty"`
-	DB      int          `json:"db,omitempty"`      // default value is 0
-	TimeOut int          `json:"timeout,omitempty"` // default value: 10
-	Auth    Auth         `json:"auth,omitempty"`
-	Handle  func() error // custom func validtion
-}
-
-// HTTPHeader used to setup webservices integrations
-type HTTPHeader struct {
-	Key   string `json:"key,omitempty"`
-	Value string `json:"Value,omitempty"`
-}
-
-// Mapped types for IntegrationConfig
-const (
-	Redis     = "redis"
-	Memcached = "memcached"
-	Web       = "web"
-	Custom    = "custom"
-)
-
-// Mapped typs for kinds of integrations
-const (
-	RedisIntegration       = "Redis DB"
-	MemcachedIntegration   = "Memcached DB"
-	WebServiceIntegration  = "Web service API"
-	CustomizedTestFunction = "Customized test function"
-)

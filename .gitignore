@@ -5,3 +5,4 @@ profile.cov
 main.go
 *.out
 *.log
+*.cov
