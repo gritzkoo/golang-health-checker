@@ -1,9 +1,15 @@
 package healthcheck
 
 import (
+	"context"
 	"fmt"
+	"log/slog"
 	"os"
 	"testing"
+	"time"
+	"uuid"
+
+	"github.com/redis/go-redis/v9"
 )
 
 func getenv(key string, fallback string) string {
@@ -20,129 +26,180 @@ var (
 )
 
 func TestSimpleChecker(t *testing.T) {
-	result := HealthCheckerSimple().Status
+	result := Liveness().Status
 
 	if result != internalStatus {
 		t.Errorf("HealthCheckerSimple() expect: %s got: %s", internalStatus, result)
 	}
 }
 
-type detailedListProvider struct {
-	Expected bool
-	FakeHttp bool
-	Config   IntegrationConfig
-}
-
-var detailedDataProvider = []detailedListProvider{
-	{
-		Expected: true,
-		Config: IntegrationConfig{
-			Type: Redis,
-			Name: "go-test-redis",
-			DB:   1,
-			Host: REDIS_HOST,
-			Port: "6379",
-		},
-	}, {
-		Expected: false,
-		Config: IntegrationConfig{
-			Type: Redis,
-			Name: "go-test-redis",
-			DB:   1,
-			Host: REDIS_HOST,
-			Port: "63",
-		},
-	}, {
-		Expected: true,
-		Config: IntegrationConfig{
-			Type: Memcached,
-			Name: "go-test-memcached",
-			Host: MEMCACHE_HOST,
-			Port: "11211",
-		},
-	}, {
-		Expected: false,
-		Config: IntegrationConfig{
-			Type: Memcached,
-			Name: "go-test-memcached",
-			Host: MEMCACHE_HOST,
-			Port: "11",
-		},
-	}, {
-		Expected: true,
-		Config: IntegrationConfig{
-			Type: Web,
-			Name: "go-test-web1",
-			Host: "https://github.com/status",
-			Headers: []HTTPHeader{
-				{
-					Key:   "Accept",
-					Value: "application/json",
-				},
-			},
-		},
-	}, {
-		Expected: false,
-		Config: IntegrationConfig{
-			Type:    Web,
-			Name:    "go-test-with no 200",
-			Host:    "https://google.com/status",
-			TimeOut: 1,
-		},
-	}, {
-		Expected: false,
-		Config: IntegrationConfig{
-			Type:    Web,
-			Name:    "go-test-with-error",
-			Host:    "tcp://jsfiddle.net",
-			TimeOut: 1,
-		},
-	}, {
-		Expected: false,
-		Config: IntegrationConfig{
-			Type: "unknow",
-			Name: "go-test-unknow",
-		},
-	}, {
-		Expected: true,
-		Config: IntegrationConfig{
-			Type: Custom,
-			Name: "testing-custom-func-success",
-			Handle: func() error {
-				return nil
-			},
-		},
-	}, {
-		Expected: false,
-		Config: IntegrationConfig{
-			Type: Custom,
-			Name: "testing-custom-func-with-error",
-			Handle: func() error {
-				return fmt.Errorf("error triggered by testing")
-			},
-		},
-	},
-}
-
 func TestDetailedChecker(t *testing.T) {
-	for _, v := range detailedDataProvider {
-		config := ApplicationConfig{
-			Name:    "test",
-			Version: "test",
-			Integrations: []IntegrationConfig{
-				v.Config,
+	testLogger := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
+	tests := []struct {
+		name string
+		args []IntegrationItem
+		want bool
+	}{
+		// http test block ===============================
+		{
+			name: "testing http integration with success",
+			want: true,
+			args: []IntegrationItem{
+				NewHttpChecker(HttpCheckerParams{
+					Name: "go-test-web1",
+					Url:  "https://github.com/status",
+					Headers: map[string]string{
+						"Accept": "application/json",
+					},
+				}),
 			},
-		}
+		},
+		{
+			name: "testing http integration with timeout fail",
+			want: false,
+			args: []IntegrationItem{
+				NewHttpChecker(HttpCheckerParams{
+					Name:    "go-test-with timeout",
+					Url:     "https://google.com/status",
+					Timeout: time.Millisecond,
+					Headers: map[string]string{
+						"Accept": "application/json",
+					},
+				}),
+			},
+		},
+		{
+			name: "testing http integration with timeout fail but is optional",
+			want: true,
+			args: []IntegrationItem{
+				NewHttpChecker(HttpCheckerParams{
+					Name:       "go-test-with timeout",
+					IsOptional: true,
+					Url:        "https://google.com/status",
+					Timeout:    time.Millisecond,
+					Headers: map[string]string{
+						"Accept": "application/json",
+					},
+				}),
+			},
+		},
+		{
+			name: "testing http integration with request error parse",
+			want: false,
+			args: []IntegrationItem{
+				NewHttpChecker(HttpCheckerParams{
+					Name: "go-test-with request fail",
+					Url:  "://invalid-url",
+				}),
+			},
+		},
+		{
+			name: "testing http integration with request error status code 404",
+			want: false,
+			args: []IntegrationItem{
+				NewHttpChecker(HttpCheckerParams{
+					Name:    "go-test-with request fail",
+					Url:     "https://httpbin.org/status/404",
+					Timeout: time.Minute,
+					Headers: map[string]string{
+						"Postman-Token": uuid.NewV4().String(),
+						"Accept":        "application/json",
+					},
+				}),
+			},
+		},
+		// redis test block ==============================
+		{
+			name: "testing redis integration with success",
+			want: true,
+			args: []IntegrationItem{
+				NewRedisChecker("go-test-redis", false, &redis.Options{
+					Addr: fmt.Sprintf("%s:%d", REDIS_HOST, 6379),
+				}),
+			},
+		},
+		{
+			name: "testing redis integration with fail",
+			want: false,
+			args: []IntegrationItem{
+				NewRedisChecker("go-test-redis", false, &redis.Options{
+					Addr: fmt.Sprintf("%s:%d", REDIS_HOST, 63),
+				}),
+			},
+		},
+		{
+			name: "testing redis integration with fail but is optional",
+			want: true,
+			args: []IntegrationItem{
+				NewRedisChecker("go-test-redis", true, &redis.Options{
+					Addr: fmt.Sprintf("%s:%d", REDIS_HOST, 63),
+				}),
+			},
+		},
+		// memcached test block ==============================
+		{
+			name: "testing memcached integration with success",
+			want: true,
+			args: []IntegrationItem{
+				NewMemcachedChecker("go-test-memcached", false, fmt.Sprintf("%s:%d", MEMCACHE_HOST, 11211)),
+			},
+		},
+		{
+			name: "testing memcached integration with fail",
+			want: false,
+			args: []IntegrationItem{
+				NewMemcachedChecker("go-test-memcached", false, fmt.Sprintf("%s:%d", MEMCACHE_HOST, 11)),
+			},
+		},
+		{
+			name: "testing memcached integration with fail but is optional",
+			want: true,
+			args: []IntegrationItem{
+				NewMemcachedChecker("go-test-memcached", true, fmt.Sprintf("%s:%d", MEMCACHE_HOST, 11)),
+			},
+		},
+		// custon test block ==============================
+		{
+			name: "testing custom integration with success",
+			want: true,
+			args: []IntegrationItem{
+				NewCustomChecker("testing-custon-func-success", false, func(ctx context.Context) error {
+					return nil
+				}),
+			},
+		},
+		{
+			name: "testing custom integration with fail",
+			want: false,
+			args: []IntegrationItem{
+				NewCustomChecker("testing-custon-func-success", false, func(ctx context.Context) error {
+					return fmt.Errorf("error triggered by testing")
+				}),
+			},
+		},
+		{
+			name: "testing custom integration with fail but is optional",
+			want: true,
+			args: []IntegrationItem{
+				NewCustomChecker("testing-custon-func-success", true, func(ctx context.Context) error {
+					return fmt.Errorf("error triggered by testing")
+				}),
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			config := RedinessConfig{
+				Name:         "testing",
+				Version:      "testing",
+				Integrations: tt.args,
+			}
+			got := Readiness(t.Context(), config)
 
-		result := HealthCheckerDetailed(config)
-		condition := v.Expected == result.Status
-		printstring := "ok"
-		if !condition {
-			printstring = "nok"
-		}
-		fmt.Println("Running config:", v.Config.Name, " and result: ", printstring)
-		if result.Status != v.Expected {
-			t.Errorf("HealthCheckerDetailed() expect: %v got: %v", v.Expected, result.Status)
-		}
+			testLogger.Debug(tt.name, slog.Any("result", got))
+			if tt.want != got.Status {
+				t.Errorf("HealthCheckerDetailed() Testing: %s expect: %v got: %v", tt.name, tt.want, got.Status)
+			}
+		})
 	}
 }

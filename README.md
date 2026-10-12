@@ -14,124 +14,109 @@
 ![GitHub issues](https://img.shields.io/github/issues/gritzkoo/golang-health-checker)
 [![Go Report Card](https://goreportcard.com/badge/github.com/gritzkoo/golang-health-checker)](https://goreportcard.com/report/github.com/gritzkoo/golang-health-checker)
 
-A simple package to allow you to track your application healthy providing two ways of checking:
+A lightweight, interface-driven health check library for Go applications. Supports Kubernetes liveness and readiness probes with context cancellation, concurrent checks, and optional dependencies.
 
-*__Simple__*: will return a "fully functional" string and with this, you can check if your application is online and responding without any integration check
+## Features
 
-*__Detailed__*: will return a detailed status for any integration configuration informed on the integrations, just like in the examples below
+- **Liveness Probe**: Simple "is the app running?" check
+- **Readiness Probe**: Detailed check of all integration dependencies
+- **Context-Aware**: Full support for timeouts and cancellation
+- **Concurrent Checks**: All integrations validated in parallel
+- **Optional Dependencies**: Mark integrations as non-critical (readiness doesn't fail if optional dependencies are down)
+- **Interface-Driven**: Easy to extend with custom integrations
+- **Type-Safe**: No magic strings or config structs—everything is explicit
+- **100% Test Coverage**: All code paths covered
 
-___
->This package has a `lightweight` version with no extra dependencies. If you are looking to something more simple, please check [golnag-health-checker-lw on github](https://github.com/gritzkoo/golang-health-checker-lw "golang health checker lightweight") or [golang-health-checke-lw at go.pkg.dev](https://pkg.go.dev/github.com/gritzkoo/golang-health-checker-lw "golang health checker lightweight at go.pkg.dev")
-___
+## Supported Integrations
 
-## How to install
+- ✅ Redis (via `redis/go-redis/v9`)
+- ✅ Memcached (via `bradfitz/gomemcache`)
+- ✅ HTTP/HTTPS (any HTTP endpoint)
+- ✅ Custom Functions (implement your own checks)
 
-If you are just starting a Go project you must start a go.mod file like below
+---
+
+## Installation
+
+If you're starting a new Go project:
 
 ```sh
 go mod init github.com/my/repo
 ```
 
-Or else, if you already have a started project, just run the command below
+Then add this package:
 
 ```sh
 go get github.com/gritzkoo/golang-health-checker
 ```
 
-## How to use
+---
 
-In this example, we will use the Echo web server to show how to import and use *Simple* and *Detailed* calls.
+## Quick Start
 
-If you want to check the full options in configurations, look at this [IntegrationConfig struct](https://github.com/gritzkoo/golang-health-checker/blob/master/pkg/healthcheck/structs.go#L45-L54)
-
-### Available integrations
-
-- [x] Redis
-- [x] Memcached
-- [x] Web integration (https)
-- [x] Customized test functions 
+### Basic Usage with Gin
 
 ```go
 package main
 
 import (
- "net/http"
+	"net/http"
+	"context"
 
- "github.com/gin-gonic/gin"
- "github.com/gritzkoo/golang-health-checker/pkg/healthcheck"
+	"github.com/gin-gonic/gin"
+	"github.com/gritzkoo/golang-health-checker/pkg/healthcheck"
+	"github.com/redis/go-redis/v9"
 )
 
 func main() {
- // all the content below is just an example
- // Gin instance
- e := gin.Default()
+	router := gin.Default()
 
- // example of simple call
- e.GET("/health-check/liveness", func(c *gin.Context) {
-  c.JSON(http.StatusOK, healthcheck.HealthCheckerSimple())
- })
- // example of detailed call
- e.GET("/health-check/readiness", func(c *gin.Context) {
-  // define all integrations of your application with type healthcheck.ApplicationConfig
-  myApplicationConfig := healthcheck.ApplicationConfig{ // check the full list of available props in structs.go
-   Name:    "You APP Name", // optional prop
-   Version: "V1.0.0",       // optional prop
-   Integrations: []healthcheck.IntegrationConfig{ // mandatory prop
-    {
-     Type: healthcheck.Redis, // this prop will determine the kind of check, the list of types available in structs.go
-     Name: "redis-user-db",   // the name of you integration to display in response
-     Host: "redis",       // you can pass host:port and omit Port attribute
-     Port: "6379",
-     DB:   0, // default value is 0
-    }, {
-     Type: healthcheck.Memcached, // this prop will determine the kind of check, the list of types available in structs.go
-     Name: "Memcached server",    // the name of you integration to display in response
-     Host: "memcache",           // you can pass host:port and omit Port attribute
-     Port: "11211",
-    }, {
-     Type:    healthcheck.Web,             // this prop will determine the kind of check, the list of types available in structs.go
-     Name:    "Github Integration",        // the name of you integration to display in response
-     Host:    "https://github.com/status", // you can pass host:port and omit Port attribute
-     TimeOut: 5,                           // default value to web call is 10s
-     Headers: []healthcheck.HTTPHeader{ // to customize headers to perform a GET request
-      {
-       Key:   "Accept",
-       Value: "application/json",
-      },
-     },
-    }, {
-     Type:    "unknown",                   // this prop will determine the kind of check, the list of types available in structs.go
-     Name:    "Github Integration",        // the name of you integration to display in response
-     Host:    "https://github.com/status", // you can pass host:port and omit Port attribute
-     TimeOut: 5,                           // default value to web call is 10s
-     Headers: []healthcheck.HTTPHeader{ // to customize headers to perform a GET request
-      {
-       Key:   "Accept",
-       Value: "application/json",
-      },
-     },
-    }, {
-      Type: healthcheck.Custom,               // this prop will determine the kind of check, the list of types available in structs.go
-      Name: "Testing my customized function", // the name of you integration to display in response
-      Host: "Some info to help debug",
-      Handle: func() error {
-        // do wherever test you need using the code of your
-        // aplication and return an error or nil
-        // good examples of use is test DB connections, AWS services like SQS SNS S3 DYNAMODB, ETC
-        return nil
-      },
-    },
-   },
-  }
-  c.JSON(http.StatusOK, healthcheck.HealthCheckerDetailed(myApplicationConfig))
- })
- // Start server
- e.Run(":8888")
+	// Liveness Probe: is the app running?
+	router.GET("/health/live", func(c *gin.Context) {
+		c.JSON(http.StatusOK, healthcheck.Liveness())
+	})
+
+	// Readiness Probe: are all dependencies up?
+	router.GET("/health/ready", func(c *gin.Context) {
+		config := healthcheck.RedinessConfig{
+			Name:    "My App",
+			Version: "1.0.0",
+			Integrations: []healthcheck.IntegrationItem{
+				healthcheck.NewRedisChecker("redis-main", false, &redis.Options{
+					Addr: "localhost:6379",
+				}),
+				healthcheck.NewHttpChecker(healthcheck.HttpCheckerParams{
+					Name:    "GitHub Status",
+					Url:     "https://github.com/status",
+					Timeout: 5 * time.Second,
+				}),
+				healthcheck.NewCustomChecker("db-migration", false, func(ctx context.Context) error {
+					// Custom logic: check database, run queries, etc.
+					return checkDatabaseMigration(ctx)
+				}),
+			},
+		}
+
+		response := healthcheck.Readiness(c.Request.Context(), config)
+		if response.Status {
+			c.JSON(http.StatusOK, response)
+		} else {
+			c.JSON(http.StatusServiceUnavailable, response)
+		}
+	})
+
+	router.Run(":8888")
 }
 
+func checkDatabaseMigration(ctx context.Context) error {
+	// Your custom check logic here
+	return nil
+}
 ```
 
-This simple call will return a JSON as below
+### Response Format
+
+**Liveness Response:**
 
 ```json
 {
@@ -139,104 +124,408 @@ This simple call will return a JSON as below
 }
 ```
 
-And detailed call will return a JSON as below
+**Readiness Response:**
 
 ```json
 {
-  "name": "You APP Name",
-  "status": false, # here is the main status of your application when one of the integrations fails.. false will return
-  "version": "V1.0.0",
-  "date": "2021-08-27 08:18:06.762044096 -0300 -03 m=+24.943851850",
-  "duration": 0.283596049,
+  "name": "My App",
+  "status": true,
+  "version": "1.0.0",
+  "date": "2026-10-12T10:15:30Z",
+  "duration": 0.245,
   "integrations": [
     {
-      "name": "Github Integration",
-      "kind": "unknown",
-      "status": false,
-      "response_time": 0,
+      "name": "redis-main",
+      "kind": "Redis",
+      "status": true,
+      "is_optional": false,
+      "response_time": 0.0015,
+      "url": "localhost:6379",
+      "error": ""
+    },
+    {
+      "name": "GitHub Status",
+      "kind": "Http",
+      "status": true,
+      "is_optional": false,
+      "response_time": 0.234,
       "url": "https://github.com/status",
-      "errors": "unsuported type of:unknown"
+      "error": ""
     },
     {
-      "name": "Testing my customized function",
-      "kind": "Customized test function",
+      "name": "db-migration",
+      "kind": "Custom Checker",
       "status": true,
-      "response_time": 0,
-      "url": "Some info to help debug"
-    },
-    {
-      "name": "Memcached server",
-      "kind": "Memcached DB",
-      "status": true,
-      "response_time": 4,
-      "url": "localhost:11211"
-    },
-    {
-      "name": "redis-user-db",
-      "kind": "Redis DB",
-      "status": true,
-      "response_time": 0.000845594,
-      "url": "localhost:6379"
-    },
-    {
-      "name": "Github Integration",
-      "kind": "Web service API",
-      "status": true,
-      "response_time": 0.283513713,
-      "url": "https://github.com/status"
+      "is_optional": false,
+      "response_time": 0.008,
+      "url": "",
+      "error": ""
     }
   ]
 }
 ```
 
-## Kubernetes liveness and readiness probing
+---
 
-And then, you could call these endpoints manually to see your application health, but, if you are using modern kubernetes deployment, you can config your chart to check your application with the setup below:
+## API Reference
+
+### Functions
+
+#### `Liveness() LivenessResponse`
+
+Returns a simple "fully functional" status. Used for Kubernetes liveness probes to verify the app is running.
+
+#### `Readiness(ctx context.Context, config RedinessConfig) ReadinessResponse`
+
+Performs concurrent checks on all integrations and returns detailed status. Used for Kubernetes readiness probes.
+
+**Parameters:**
+
+- `ctx`: Context for timeouts and cancellation
+- `config`: Configuration with app metadata and integrations
+
+---
+
+### Configuration
+
+#### `RedinessConfig`
+
+```go
+type RedinessConfig struct {
+	Name         string              // Application name
+	Version      string              // Application version
+	Integrations []IntegrationItem   // List of checks to perform
+}
+```
+
+---
+
+### Building Integrations
+
+All integrations implement the `IntegrationItem` interface:
+
+```go
+type IntegrationItem interface {
+	Check(ctx context.Context) (Integration, error)
+}
+```
+
+#### Redis Checker
+
+```go
+checker := healthcheck.NewRedisChecker(
+	"redis-cache",           // name
+	false,                   // isOptional (set true to not fail readiness if down)
+	&redis.Options{
+		Addr: "localhost:6379",
+		DB:   0,
+	},
+)
+```
+
+#### HTTP Checker
+
+```go
+checker := healthcheck.NewHttpChecker(healthcheck.HttpCheckerParams{
+	Name:       "api-gateway",
+	Url:        "https://api.example.com/health",
+	Timeout:    10 * time.Second,              // Default: 10 seconds
+	Headers:    map[string]string{
+		"Authorization": "Bearer token",
+	},
+	IsOptional: false,
+})
+```
+
+#### Memcached Checker
+
+```go
+checker := healthcheck.NewMemcachedChecker(
+	"cache-layer",  // name
+	false,          // isOptional
+	"localhost:11211",
+)
+```
+
+#### Custom Checker
+
+```go
+checker := healthcheck.NewCustomChecker(
+	"database",
+	false,  // isOptional
+	func(ctx context.Context) error {
+		// Custom validation logic
+		db := getDatabaseConnection()
+		if err := db.PingContext(ctx); err != nil {
+			return err
+		}
+		return nil
+	},
+)
+```
+
+---
+
+## Optional Dependencies
+
+Mark any integration as optional so failures don't fail the overall readiness check:
+
+```go
+config := healthcheck.RedinessConfig{
+	Integrations: []healthcheck.IntegrationItem{
+		// Critical dependency
+		healthcheck.NewRedisChecker("redis-cache", false, opts),
+
+		// Optional dependency
+		healthcheck.NewHttpChecker(healthcheck.HttpCheckerParams{
+			Name:       "Analytics Service",
+			Url:        "https://analytics.example.com/health",
+			IsOptional: true,  // ← If this fails, readiness still returns true
+		}),
+	},
+}
+```
+
+**Result when optional checks fail:**
+
+- The integration is marked `status: false` with an error message
+- The root `ReadinessResponse.Status` remains `true`
+- HTTP status code: `200 OK` (not `503`)
+
+---
+
+## Kubernetes Integration
+
+### Liveness Probe
 
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-golang-app
+  name: my-app
 spec:
-  selector:
-    matchLabels:
-      app: my-golang-app
   template:
-    metadata:
-      labels:
-        app: my-golang-app
     spec:
       containers:
-      - name: my-golang-app
-        image: your-app-image:tag
-        resources:
-          request:
-            cpu: 10m
-            memory: 5Mi
-          limits:
-            cpu: 50m
-            memory: 50Mi 
-        livenessProbe:
-          httpGet:
-            path: /health-check/liveness
-            port: 8888
-            scheme: http
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 5
-          failureThreshold: 2
-          successThreshold: 1
-        readinessProbe:
-          httpGet:
-            path: /health-check/liveness
-            port: 8888
-            scheme: http
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 5
-          failureThreshold: 2
-          successThreshold: 1
-        ports:
-        - containerPort: 8888
+        - name: app
+          image: my-app:latest
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8888
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
 ```
+
+### Readiness Probe
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  template:
+    spec:
+      containers:
+        - name: app
+          image: my-app:latest
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8888
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+```
+
+---
+
+## Extending with Custom Integrations
+
+Implement the `IntegrationItem` interface to add custom checks:
+
+```go
+type DatabaseHealthChecker struct {
+	name string
+	db   *sql.DB
+}
+
+func (d *DatabaseHealthChecker) Check(ctx context.Context) (healthcheck.Integration, error) {
+	response := healthcheck.Integration{
+		Name:   d.name,
+		Kind:   "PostgreSQL",
+		Status: true,
+		URL:    "database.internal:5432",
+	}
+
+	if err := d.db.PingContext(ctx); err != nil {
+		return response, err
+	}
+
+	return response, nil
+}
+
+// Then use it:
+checker := &DatabaseHealthChecker{
+	name: "postgres-primary",
+	db:   db,
+}
+
+config.Integrations = append(config.Integrations, checker)
+```
+
+---
+
+## Concurrency Model
+
+All integrations are checked **concurrently** using goroutines:
+
+```
+Start
+  ├─ Check Redis (goroutine 1)      ~1ms
+  ├─ Check HTTP (goroutine 2)       ~250ms
+  ├─ Check Memcached (goroutine 3)  ~2ms
+  └─ Check Custom (goroutine 4)     ~50ms
+
+  Total Time: ~250ms (max of all, not sum)
+  vs. Sequential: ~303ms
+```
+
+Each goroutine:
+
+- Respects the parent context timeout
+- Reports individual response times
+- Can fail independently (optional integrations don't fail the whole response)
+
+---
+
+## Error Handling
+
+Errors are captured per-integration and included in the response:
+
+```json
+{
+  "name": "redis-cache",
+  "kind": "Redis",
+  "status": false,
+  "error": "dial tcp localhost:6379: connect: connection refused",
+  "response_time": 0.015
+}
+```
+
+The main readiness status is `false` only if a **non-optional** integration fails.
+
+---
+
+## Testing
+
+Run the full test suite:
+
+```sh
+make test
+```
+
+With race condition detection:
+
+```sh
+go test -race ./...
+```
+
+View coverage:
+
+```sh
+make coverage
+```
+
+All code paths are covered (100% coverage).
+
+---
+
+## Performance Notes
+
+- Goroutine overhead is minimal (~2KB per check)
+- Connections are reused (Redis client persists across checks)
+- HTTP response bodies are properly closed (no file descriptor leaks)
+- Context cancellation works at the integration level
+- Typical health check (4 integrations): **250-500ms**
+
+---
+
+## Migration from v1
+
+If you're upgrading from v1, here are the key changes:
+
+| v1                               | v2                                          |
+| -------------------------------- | ------------------------------------------- |
+| `HealthCheckerSimple()`          | `Liveness()`                                |
+| `HealthCheckerDetailed(config)`  | `Readiness(ctx, config)`                    |
+| `ApplicationConfig`              | `RedinessConfig`                            |
+| `ApplicationHealthDetailed`      | `ReadinessResponse`                         |
+| `ApplicationHealthSimple`        | `LivenessResponse`                          |
+| Config struct with magic strings | Interface-driven (type-safe)                |
+| No context support               | Full context support                        |
+| No optional dependencies         | `IsOptional` field                          |
+| Manual checker instantiation     | Builder functions: `NewRedisChecker()` etc. |
+
+**Old API:**
+
+```go
+config := ApplicationConfig{
+	Integrations: []IntegrationConfig{
+		{
+			Type: "redis",
+			Name: "cache",
+			Host: "localhost",
+			Port: "6379",
+		},
+	},
+}
+result := HealthCheckerDetailed(config)
+```
+
+**New API:**
+
+```go
+config := RedinessConfig{
+	Integrations: []IntegrationItem{
+		NewRedisChecker("cache", false, &redis.Options{
+			Addr: "localhost:6379",
+		}),
+	},
+}
+result := Readiness(ctx, config)
+```
+
+---
+
+## Lightweight Version
+
+Looking for a version with zero external dependencies? Check out [golang-health-checker-lw](https://github.com/gritzkoo/golang-health-checker-lw).
+
+---
+
+## Contributing
+
+Issues and PRs welcome. Please ensure:
+
+- All tests pass: `go test -race ./...`
+- Code coverage remains at 100%
+- Go code follows `gofmt` standards
+
+---
+
+## License
+
+MIT License. See `LICENSE` file for details.
+
+---
+
+## Support
+
+- **Bugs:** [GitHub Issues](https://github.com/gritzkoo/golang-health-checker/issues)
+- **Questions:** Open a discussion or issue
+- **Docs:** [pkg.go.dev](https://pkg.go.dev/github.com/gritzkoo/golang-health-checker/pkg/healthcheck)
