@@ -10,10 +10,12 @@ import (
 	"github.com/go-redis/redis"
 )
 
+const internalStatus = "fully functional"
+
 // HealthCheckerSimple performs a simple check of the application
 func HealthCheckerSimple() ApplicationHealthSimple {
 	return ApplicationHealthSimple{
-		Status: "fully functional",
+		Status: internalStatus,
 	}
 }
 
