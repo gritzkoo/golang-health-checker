@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"os"
 	"testing"
-
-	"gopkg.in/go-playground/assert.v1"
 )
 
 func getenv(key string, fallback string) string {
@@ -24,7 +22,9 @@ var (
 func TestSimpleChecker(t *testing.T) {
 	result := HealthCheckerSimple().Status
 
-	assert.Equal(t, result, "fully functional")
+	if result != internalStatus {
+		t.Errorf("HealthCheckerSimple() expect: %s got: %s", internalStatus, result)
+	}
 }
 
 type detailedListProvider struct {
@@ -141,6 +141,8 @@ func TestDetailedChecker(t *testing.T) {
 			printstring = "nok"
 		}
 		fmt.Println("Running config:", v.Config.Name, " and result: ", printstring)
-		assert.Equal(t, result.Status, v.Expected)
+		if result.Status != v.Expected {
+			t.Errorf("HealthCheckerDetailed() expect: %v got: %v", v.Expected, result.Status)
+		}
 	}
 }

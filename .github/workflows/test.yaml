@@ -5,17 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        redis-version: [6]
-        go: ["1.24"]
+        redis-version: [7]
+        go: ["1.27"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Sets up a Memcached server
-        uses: niden/actions-memcached@v7
+        uses: niden/actions-memcached@v8
       - name: Start Redis
-        uses: supercharge/redis-github-action@1.1.0
+        uses: supercharge/redis-github-action@1.8.1
         with:
           redis-version: ${{ matrix.redis-version }}
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v7
         with:
           go-version: ${{ matrix.go }}
       - name: install deps
@@ -53,9 +53,9 @@ jobs:
         with:
           bump_version_scheme: patch
       - name: setup go server
-        uses: actions/setup-go@v1
+        uses: actions/setup-go@v7
         with:
-          go-version: "1.24"
+          go-version: "1.27"
       - name: update go.pkg.dev
         env:
           GOPROXY: https://proxy.golang.org
