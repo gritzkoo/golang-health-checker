@@ -1,0 +1,31 @@
+name: update-package
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+  release:
+    types:
+      - published
+jobs:
+  update-package:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: setup go server
+        uses: actions/setup-go@v7
+        with:
+          # go-version: "1.27"
+          go-version-file: "go.mod"
+      - name: update go.pkg.dev
+        env:
+          GOPROXY: https://proxy.golang.org
+          GO111MODULE: "on"
+          VERSION: ${{ github.event.release.tag_name || inputs.version }}
+        run: |
+          go mod init pipeline
+          MODULE_NAME=$(go list -m)
+          echo "trying to install module ${MODULE_NAME} on version ${VERSION}"
+          go get "${MODULE_NAME}@${VERSION}"

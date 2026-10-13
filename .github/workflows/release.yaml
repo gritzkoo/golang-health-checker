@@ -1,0 +1,19 @@
+name: release
+on:
+  workflow_dispatch: {}
+  workflow_run:
+    workflows: [test, build]
+    types: [completed]
+    branches: [main, master]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: rymndhng/release-on-push-action@master
+        id: release_package
+        with:
+          bump_version_scheme: patch

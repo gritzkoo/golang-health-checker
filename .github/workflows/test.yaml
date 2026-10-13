@@ -1,5 +1,7 @@
 name: test
-on: [push]
+on:
+  push:
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -38,29 +40,3 @@ jobs:
       - uses: shogo82148/actions-goveralls@v1
         with:
           parallel-finished: true
-
-  release-on-push:
-    runs-on: ubuntu-latest
-    needs:
-      - test
-      - finish
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - uses: rymndhng/release-on-push-action@master
-        id: release_package
-        with:
-          bump_version_scheme: patch
-      - name: setup go server
-        uses: actions/setup-go@v7
-        with:
-          go-version: "1.27"
-      - name: update go.pkg.dev
-        env:
-          GOPROXY: https://proxy.golang.org
-          GO111MODULE: "on"
-          VERSION: ${{steps.release_package.outputs.version}}
-        run: |
-          go mod init pipeline
-          go get github.com/${GITHUB_REPOSITORY}@${VERSION}
