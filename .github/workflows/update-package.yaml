@@ -25,7 +25,9 @@ jobs:
           GO111MODULE: "on"
           VERSION: ${{ github.event.release.tag_name || inputs.version }}
         run: |
-          go mod init pipeline
           MODULE_NAME=$(go list -m)
           echo "trying to install module ${MODULE_NAME} on version ${VERSION}"
+          mkdir testapp
+          cd testapp
+          go mod init pipeline
           go get "${MODULE_NAME}@${VERSION}"
