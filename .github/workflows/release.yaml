@@ -1,0 +1,32 @@
+name: release
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [test, build]
+    types: [completed]
+    branches: [main, master]
+
+jobs:
+  release-on-push:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: rymndhng/release-on-push-action@master
+        id: release_package
+        with:
+          bump_version_scheme: patch
+      - name: setup go server
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: "go.mod"
+          # go-version: "1.27"
+      - name: update go.pkg.dev
+        env:
+          GOPROXY: https://proxy.golang.org
+          GO111MODULE: "on"
+          VERSION: ${{steps.release_package.outputs.version}}
+        run: |
+          go mod init pipeline
+          go get github.com/${GITHUB_REPOSITORY}@${VERSION}
