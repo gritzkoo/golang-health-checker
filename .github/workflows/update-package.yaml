@@ -8,7 +8,7 @@ on:
     types:
       - published
 jobs:
-  release-on-push:
+  update-package:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
