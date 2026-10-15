@@ -1,26 +1,26 @@
 [
   {
+    "path": "/gritzkoo/golang-health-checker/actions",
+    "title": "/actions",
+    "count": 12,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pulls",
+    "title": "/pulls",
+    "count": 8,
+    "uniques": 2
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/actions/runs/28642036987/job/84940195770",
     "title": "/actions/runs/28642036987/job/84940195770",
     "count": 7,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "/actions",
-    "count": 6,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "/pulls",
-    "count": 5,
-    "uniques": 2
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/actions/workflows/build.yaml",
     "title": "/actions/workflows/build.yaml",
-    "count": 5,
+    "count": 6,
     "uniques": 1
   },
   {
@@ -30,8 +30,20 @@
     "uniques": 1
   },
   {
+    "path": "/gritzkoo/golang-health-checker/pull/33",
+    "title": "/pull/33",
+    "count": 3,
+    "uniques": 1
+  },
+  {
     "path": "/gritzkoo/golang-health-checker",
     "title": "Overview",
+    "count": 2,
+    "uniques": 2
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/issues",
+    "title": "/issues",
     "count": 2,
     "uniques": 2
   },
@@ -44,18 +56,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/actions/runs/38251203760/job/114817673101",
     "title": "/actions/runs/38251203760/job/114817673101",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/38307265830",
-    "title": "/actions/runs/38307265830",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pull/32",
-    "title": "/pull/32",
     "count": 2,
     "uniques": 1
   }
