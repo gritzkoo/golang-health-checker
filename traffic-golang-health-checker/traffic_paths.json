@@ -24,6 +24,12 @@
     "uniques": 1
   },
   {
+    "path": "/gritzkoo/golang-health-checker",
+    "title": "Overview",
+    "count": 5,
+    "uniques": 3
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/pull/31",
     "title": "/pull/31",
     "count": 5,
@@ -34,12 +40,6 @@
     "title": "/pull/33",
     "count": 3,
     "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker",
-    "title": "Overview",
-    "count": 2,
-    "uniques": 2
   },
   {
     "path": "/gritzkoo/golang-health-checker/issues",
