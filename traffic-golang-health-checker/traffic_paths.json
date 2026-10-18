@@ -6,14 +6,14 @@
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "/pulls",
-    "count": 8,
-    "uniques": 2
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/actions/runs/28642036987/job/84940195770",
     "title": "/actions/runs/28642036987/job/84940195770",
+    "count": 7,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pulls",
+    "title": "/pulls",
     "count": 7,
     "uniques": 1
   },
