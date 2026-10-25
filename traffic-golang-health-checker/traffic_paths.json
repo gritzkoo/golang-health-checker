@@ -48,14 +48,14 @@
     "uniques": 2
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/22/files",
-    "title": "/pull/22/files",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/gritzkoo/golang-health-checker/actions/runs/38251203760/job/114817673101",
     "title": "/actions/runs/38251203760/job/114817673101",
+    "count": 2,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/actions/runs/38307265830",
+    "title": "/actions/runs/38307265830",
     "count": 2,
     "uniques": 1
   }
