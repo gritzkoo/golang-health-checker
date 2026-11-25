@@ -1,62 +1,62 @@
 [
   {
-    "path": "/gritzkoo/golang-health-checker/actions",
-    "title": "/actions",
-    "count": 13,
-    "uniques": 2
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/28642036987/job/84940195770",
-    "title": "/actions/runs/28642036987/job/84940195770",
-    "count": 7,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pulls",
-    "title": "/pulls",
-    "count": 7,
-    "uniques": 1
+    "path": "/gritzkoo/golang-health-checker",
+    "title": "Overview",
+    "count": 6,
+    "uniques": 6
   },
   {
     "path": "/gritzkoo/golang-health-checker/actions/workflows/build.yaml",
     "title": "/actions/workflows/build.yaml",
-    "count": 6,
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/pull/31",
-    "title": "/pull/31",
-    "count": 5,
+    "path": "/gritzkoo/golang-health-checker/blob/master/LICENSE",
+    "title": "/blob/master/LICENSE",
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker",
-    "title": "Overview",
-    "count": 4,
-    "uniques": 2
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/pull/33",
-    "title": "/pull/33",
-    "count": 3,
+    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
+    "title": "/blob/master/README.md",
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/issues",
-    "title": "/issues",
-    "count": 2,
-    "uniques": 2
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/38251203760/job/114817673101",
-    "title": "/actions/runs/38251203760/job/114817673101",
-    "count": 2,
+    "path": "/gritzkoo/golang-health-checker/blob/master/docker-compose.yaml",
+    "title": "/blob/master/docker-compose.yaml",
+    "count": 1,
     "uniques": 1
   },
   {
-    "path": "/gritzkoo/golang-health-checker/actions/runs/38307265830",
-    "title": "/actions/runs/38307265830",
-    "count": 2,
+    "path": "/gritzkoo/golang-health-checker/blob/master/go.sum",
+    "title": "/blob/master/go.sum",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/v1.3.0/main.go",
+    "title": "/blob/v1.3.0/main.go",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/v1.3.1/pkg/healthcheck/structs.go",
+    "title": "/blob/v1.3.1/pkg/healthcheck/structs.go",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/blob/v1.4.0/main.go",
+    "title": "/blob/v1.4.0/main.go",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/gritzkoo/golang-health-checker/pull/1",
+    "title": "/pull/1",
+    "count": 1,
     "uniques": 1
   }
 ]
