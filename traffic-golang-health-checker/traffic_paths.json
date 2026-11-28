@@ -6,6 +6,12 @@
     "uniques": 7
   },
   {
+    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
+    "title": "/blob/master/README.md",
+    "count": 2,
+    "uniques": 2
+  },
+  {
     "path": "/gritzkoo/golang-health-checker/actions",
     "title": "/actions",
     "count": 1,
@@ -26,12 +32,6 @@
   {
     "path": "/gritzkoo/golang-health-checker/blob/master/LICENSE",
     "title": "/blob/master/LICENSE",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/gritzkoo/golang-health-checker/blob/master/README.md",
-    "title": "/blob/master/README.md",
     "count": 1,
     "uniques": 1
   },
